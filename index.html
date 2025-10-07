@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>✈️ مسافر من الإمارات لمصر؟ اكسب من وزن شنطتك الفاضي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#0078ff;
+      --accent-dark:#005ecc;
+      --gold:#ffcf40;
+      --card-bg: rgba(255,255,255,0.92);
+      --card-bg-dark: rgba(18,18,18,0.86);
+      --text:#0b2540;
+      --round:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(180deg, rgba(0,24,80,0.25) 0%, rgba(0,24,80,0.10) 100%), url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px 16px;
+    }
+
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    .card{
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 10px 30px rgba(7,22,45,0.18);
+      backdrop-filter: blur(6px);
+    }
+
+    header{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:16px;
+    }
+
+    header h1{
+      font-size:1.25rem;
+      margin:0;
+      color:var(--accent);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    header p.lead{
+      margin:0;
+      font-size:0.95rem;
+      color:#0b2540cc;
+    }
+
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:18px;
+    }
+    @media(max-width:900px){ .cols{ grid-template-columns: 1fr; } }
+
+    /* form */
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-weight:600;font-size:0.95rem}
+    .field{display:flex;flex-direction:column;gap:8px}
+    input[type="text"], input[type="number"], input[type="tel"], input[type="datetime-local"], textarea, select{
+      width:100%;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid #d0d7df;
+      font-size:0.98rem;
+      background:#fff;
+    }
+    textarea{min-height:90px; resize:vertical}
+    .row{display:flex;gap:10px}
+    .row .col{flex:1}
+
+    .small-note{font-size:0.85rem;color:#355;opacity:0.85}
+    .inline-choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+    .opt{
+      display:inline-flex;align-items:center;gap:8px;background:#f6f9ff;border-radius:10px;padding:8px 10px;border:1px solid #e1e8ff;
+      cursor:pointer;font-weight:600
+    }
+    .opt input{accent-color:var(--accent)}
+    .btn{
+      background:var(--accent); color:#fff;border:none;border-radius:10px;padding:12px 14px;font-weight:700;cursor:pointer;font-size:1rem;
+      transition:background .15s, transform .08s;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn[disabled]{opacity:.6;cursor:not-allowed}
+
+    /* upload area */
+    .upload-area{
+      border:2px dashed rgba(7,22,45,0.07);
+      background:rgba(250,250,255,0.6);
+      padding:14px;border-radius:12px;text-align:center;
+      transition:background .15s, border-color .15s;
+    }
+    .upload-area.dragover{background:rgba(7,120,255,0.06); border-color: var(--accent)}
+    .files-list{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+    .file-item{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:8px 10px;border-radius:10px;border:1px solid #eee}
+    .file-item small{opacity:.8}
+
+    /* right column (info + reviews) */
+    .side{
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .card-mini{
+      background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.90));
+      padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);
+    }
+    .review{background:#f8fbff;padding:10px;border-radius:10px;font-size:0.95rem}
+
+    footer{margin-top:14px;text-align:center;color:#022a44;opacity:.9;font-weight:600}
+
+    .contacts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .wa-link{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:#25D366;color:#fff;text-decoration:none;font-weight:700}
+    .wa-eg{background:#0c7abf}
+    .flag{font-size:18px;margin-left:6px}
+
+    .note-success{display:none;padding:12px;border-radius:10px;background:linear-gradient(90deg,#e6ffef,#ddfff2);color:#064; font-weight:700;margin-top:8px}
+    .note-error{display:none;padding:12px;border-radius:10px;background:linear-gradient(90deg,#ffecec,#fff0f0);color:#900; font-weight:700;margin-top:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="pageTitle">
+      <header>
+        <div>
+          <h1 id="pageTitle">✈️ مسافر من الإمارات لمصر؟ اكسب من وزن شنطتك الفاضي!</h1>
+          <p class="lead">سجل بيانات رحلتك بسرعة واحنا نتواصل معاك لتنسيق الشحنة والعمولة — آمن ومرتب ومجرب.</p>
+        </div>
+      </header>
+
+      <div class="cols">
+        <!-- main form -->
+        <section>
+          <form id="mainForm" autocomplete="off" novalidate>
+            <!-- الاسم -->
+            <div class="field">
+              <label>الاسم الكامل *</label>
+              <input name="name" type="text" placeholder="اكتب اسمك كامل" required>
+            </div>
+
+            <!-- المدينة -->
+            <div class="field">
+              <label>مقيم في أي مدينة في الإمارات؟ *</label>
+              <select name="city" required>
+                <option value="">اختار المدينة</option>
+                <option>دبي</option>
+                <option>أبو ظبي</option>
+                <option>الشارقة</option>
+                <option>العين</option>
+                <option>عجمان</option>
+                <option>الفجيرة</option>
+                <option>رأس الخيمة</option>
+              </select>
+            </div>
+
+            <!-- ميعاد السفر -->
+            <div class="field">
+              <label>راجع امتى مصر؟ *</label>
+              <input name="travelDate" type="datetime-local" required>
+              <div class="small-note">اختار اليوم والساعة المتوقعين للسفر</div>
+            </div>
+
+            <!-- وزن فاضي -->
+            <div class="field">
+              <label>معاك وزن فاضي؟ *</label>
+              <div class="inline-choices" role="radiogroup" aria-label="وزن فاضي">
+                <label class="opt"><input type="radio" name="hasWeight" value="نعم" required> نعم</label>
+                <label class="opt"><input type="radio" name="hasWeight" value="لا" required> لا</label>
+              </div>
+            </div>
+
+            <!-- خانة تقريب الكيلو تظهر لو نعم -->
+            <div class="field" id="weightDetailWrap" style="display:none">
+              <label>حوالي كام كيلو فاضي معاك؟</label>
+              <input name="weightKg" type="number" placeholder="مثال: 8" min="0">
+            </div>
+
+            <!-- نوع الأغراض -->
+            <div class="field">
+              <label>نوع الأغراض اللي ممكن تخدها معاك؟ *</label>
+              <div class="inline-choices" style="flex-direction:column" role="group" aria-label="نوع الأغراض">
+                <label class="opt" style="background:#fff;border:1px solid #e6eefb"><input type="checkbox" name="items" value="تسجيل موبايل على الباسبور"> متاح معاك تسجيل موبايل على الباسبور</label>
+
+                <label class="opt" style="background:#fff;border:1px solid #e6eefb">
+                  <input type="checkbox" name="items" value="باكدج الكترونيات (موبايلات/تابلت/لابتوب)"> باكدج إلكترونيات (موبايلات - تابلت - لابتوب) <div style="font-size:0.86rem;color:#555;margin-top:4px">ملاحظة: هتخصم من الوزن</div>
+                </label>
+
+                <label class="opt" style="background:#fff;border:1px solid #e6eefb">
+                  <input type="checkbox" name="items" value="باكدج ملابس + احذية + عطور"> باكدج (ملابس + أحذية + عطور) بالكيلو
+                </label>
+              </div>
+            </div>
+
+            <!-- زيارة ولا اقامة -->
+            <div class="field">
+              <label>زيارة ولا إقامة؟ *</label>
+              <div class="inline-choices" role="radiogroup" aria-label="زيارة او اقامة">
+                <label class="opt"><input type="radio" name="visitOrStay" value="زيارة" required> زيارة</label>
+                <label class="opt"><input type="radio" name="visitOrStay" value="إقامة" required> إقامة</label>
+              </div>
+            </div>
+
+            <!-- رفع الملفات (تذكرة + جواز) -->
+            <div class="field">
+              <label>قم بإرفاق صور التذكرة والباسبور</label>
+              <div id="uploadArea" class="upload-area" aria-describedby="uploadHint">
+                اسحب وافلت هنا الملفات (صور أو PDF) أو اضغط للاختيار<br>
+                <small id="uploadHint">مسموح: jpg/png/pdf — ارفع أكتر من ملف لو محتاج (مثلاً تذكرة + صفحة من الباسبور)</small>
+                <input id="fileInput" type="file" accept="image/*,application/pdf" multiple style="display:none">
+                <div class="files-list" id="filesList"></div>
+              </div>
+            </div>
+
+            <!-- رقم الواتساب (مفتاحين) -->
+            <div class="field">
+              <label>اكتب رقمك هنا للتواصل واتساب (مفتاح مصر +20 أو مفتاح الإمارات +971)</label>
+              <div class="row">
+                <div class="col">
+                  <div style="display:flex;gap:8px;align-items:center">
+                    <span class="flag">🇪🇬</span>
+                    <input name="phone_eg" type="tel" placeholder="+20 ...">
+                  </div>
+                </div>
+                <div class="col">
+                  <div style="display:flex;gap:8px;align-items:center">
+                    <span class="flag">🇦🇪</span>
+                    <input name="phone_ae" type="tel" placeholder="+971 ...">
+                  </div>
+                </div>
+              </div>
+              <div class="small-note">يكفي تكتب رقم واحد على الأقل (مصر أو الإمارات)</div>
+            </div>
+
+            <!-- hidden timestamp -->
+            <input type="hidden" name="submittedAt" id="submittedAt">
+
+            <!-- submit -->
+            <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+              <button class="btn" type="submit" id="submitBtn">إرسال البيانات</button>
+              <div class="note-success" id="successNote">✅ تم إرسال البيانات بنجاح! هنتواصل معاك قريباً.</div>
+              <div class="note-error" id="errorNote">❌ حصل خطأ أثناء الإرسال، حاول تاني.</div>
+            </div>
+          </form>
+        </section>
+
+        <!-- sidebar: info + reviews + contacts -->
+        <aside class="side">
+          <div class="card-mini">
+            <h3 style="margin:0 0 8px 0">إزاي الشغل؟</h3>
+            <p style="margin:0;font-size:0.95rem;line-height:1.5">إحنا بننسق مع مسافرين راجعين مصر — لو معاك وزن فاضي أو تقدر تسجل موبايل على الباسبور أو تجيب باكدج إلكترونيات/ملابس، سجّل هنا واحنا نرد عليك بالأسعار وطريقة التسليم.</p>
+          </div>
+
+          <div class="card-mini">
+            <h4 style="margin:0 0 8px 0">نقاط مهمة</h4>
+            <ul style="margin:0;padding-left:18px">
+              <li>البيانات بتتخزن آمن عندنا وهنستخدمها للتواصل بس.</li>
+              <li>ما نتحملش أي غرامات جمركية لو حصلت خلال النقل.</li>
+              <li>الرسوم والعمولة هتكون واضحة قبل أي اتفاق.</li>
+            </ul>
+          </div>
+
+          <div class="card-mini">
+            <h4 style="margin:0 0 8px 0">آراء الناس</h4>
+            <div class="review">"تعامل محترم وسهل، استلمت كل حاجة سليمة." — أحمد، دبي</div>
+            <div class="review">"رتبوا كل حاجة بسرعة وكانوا واضحين في الشروط." — منى، الشارقة</div>
+            <div class="review">"خدمة ممتازة وأنصح أي حد يجرب." — خالد، أبوظبي</div>
+          </div>
+
+          <div class="card-mini">
+            <h4 style="margin:0 0 8px 0">تواصل مباشر</h4>
+            <div class="contacts">
+              <a class="wa-link" href="https://wa.me/971547909135" target="_blank" rel="noopener">🇦🇪 واتساب الإمارات · +971547909135</a>
+              <a class="wa-link wa-eg" href="https://wa.me/201102710577" target="_blank" rel="noopener">🇪🇬 واتساب مصر · +201102710577</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer>الخدمة متاحة حالياً للمسافرين من الإمارات لمصر ✈️ — وإن شاء الله قريب نوسع لباقي الدول</footer>
+    </div>
+  </div>
+
+  <script>
+    // ---------- إعدادات عامة ----------
+    const webhookUrl = "https://uae2egy.app.n8n.cloud/webhook/d6743876-6f1d-46eb-a7dd-89f6337f71eb";
+
+    // عناصر DOM
+    const mainForm = document.getElementById('mainForm');
+    const fileInput = document.getElementById('fileInput');
+    const uploadArea = document.getElementById('uploadArea');
+    const filesList = document.getElementById('filesList');
+    const weightDetailWrap = document.getElementById('weightDetailWrap');
+    const submitBtn = document.getElementById('submitBtn');
+    const successNote = document.getElementById('successNote');
+    const errorNote = document.getElementById('errorNote');
+
+    // مخزن الملفات مؤقت
+    let uploadedFiles = [];
+
+    // عرض الملفات في الواجهة
+    function renderFiles(){
+      filesList.innerHTML = "";
+      uploadedFiles.forEach((f, idx) => {
+        const div = document.createElement('div');
+        div.className = 'file-item';
+        const name = document.createElement('div');
+        name.innerHTML = `<strong>${f.name}</strong> <small>(${Math.round(f.size/1024)} KB)</small>`;
+        const del = document.createElement('button');
+        del.textContent = "حذف";
+        del.style.background = 'transparent';
+        del.style.border = 'none';
+        del.style.color = '#c33';
+        del.style.cursor = 'pointer';
+        del.onclick = ()=> { uploadedFiles.splice(idx,1); renderFiles(); };
+        div.appendChild(name);
+        div.appendChild(del);
+        filesList.appendChild(div);
+      });
+    }
+
+    // سحب وإسقاط
+    uploadArea.addEventListener('click', ()=> fileInput.click());
+    uploadArea.addEventListener('dragover', (e)=> { e.preventDefault(); uploadArea.classList.add('dragover'); });
+    uploadArea.addEventListener('dragleave', ()=> uploadArea.classList.remove('dragover'));
+    uploadArea.addEventListener('drop', (e)=> {
+      e.preventDefault(); uploadArea.classList.remove('dragover');
+      const dt = e.dataTransfer;
+      if(dt && dt.files) handleFiles(dt.files);
+    });
+
+    fileInput.addEventListener('change', (e)=> {
+      handleFiles(e.target.files);
+      fileInput.value = ""; // reset
+    });
+
+    function handleFiles(fileList){
+      for(const f of fileList){
+        // قبول الصور وPDF فقط
+        if(!(/image\/|pdf$/.test(f.type) || f.name.match(/\.(pdf|jpg|jpeg|png)$/i))){
+          alert('مسموح فقط بصور (jpg/png) أو PDF');
+          continue;
+        }
+        uploadedFiles.push(f);
+      }
+      renderFiles();
+    }
+
+    // إظهار/اخفاء خانة الوزن التقريبي
+    document.querySelectorAll('input[name="hasWeight"]').forEach(radio=>{
+      radio.addEventListener('change', ()=>{
+        if(radio.checked && radio.value === 'نعم') weightDetailWrap.style.display = 'block';
+        if(radio.checked && radio.value === 'لا') {
+          weightDetailWrap.style.display = 'none';
+          mainForm.querySelector('input[name="weightKg"]').value = '';
+        }
+      });
+    });
+
+    // تأكيد وجود رقم واحد على الأقل (مصر أو الإمارات)
+    function atLeastOnePhone(){
+      const eg = mainForm.querySelector('input[name="phone_eg"]').value.trim();
+      const ae = mainForm.querySelector('input[name="phone_ae"]').value.trim();
+      return eg.length>0 || ae.length>0;
+    }
+
+    // إرسال البيانات إلى n8n webhook
+    mainForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      // تحقق بسيط
+      if(!atLeastOnePhone()){
+        alert('رجاءً اكتب رقم واحد على الأقل (مصر أو الإمارات) للتواصل.');
+        return;
+      }
+
+      // جمع البيانات
+      const formData = new FormData();
+      const data = Object.fromEntries(new FormData(mainForm).entries());
+      // ضع طابع زمني
+      data.submittedAt = new Date().toISOString();
+      // items checkboxes => جمع القيم لو في أكثر من قيمة
+      const items = Array.from(mainForm.querySelectorAll('input[name="items"]:checked')).map(i=>i.value);
+      data.items = items.join(' | ') || '';
+
+      // append كل الحقول كسلاسل
+      for(const k in data){
+        formData.append(k, data[k]);
+      }
+      // إرفاق الملفات
+      uploadedFiles.forEach((f, idx)=> formData.append('files[]', f, f.name));
+
+      // حالة الواجهة
+      submitBtn.disabled = true;
+      submitBtn.textContent = "جاري الإرسال...";
+      successNote.style.display='none';
+      errorNote.style.display='none';
+
+      try{
+        const resp = await fetch(webhookUrl, {
+          method:'POST',
+          body: formData
+        });
+        // بعض أنظمة n8n ترجع 2xx ولكن قد تكون العملية داخلياً ناجحة
+        if(resp.ok){
+          successNote.style.display = 'block';
+          errorNote.style.display = 'none';
+          mainForm.reset();
+          uploadedFiles = [];
+          renderFiles();
+        } else {
+          // استجابة غير 200
+          throw new Error('response not ok: ' + resp.status);
+        }
+      } catch(err){
+        console.error(err);
+        errorNote.style.display = 'block';
+        successNote.style.display = 'none';
+      } finally{
+        submitBtn.disabled = false;
+        submitBtn.textContent = "إرسال البيانات";
+      }
+    });
+
+    // تجربة: منع ازالة العناصر الافتراضية لو ضغط المستخدم على refresh بالخطأ
+    window.addEventListener('beforeunload', function (e) {
+      // لو فيه بيانات غير محفوظة ممكن نعرض تنبيه (لكن أتركه معلق افتراضياً)
+    });
+  </script>
+</body>
+</html>
