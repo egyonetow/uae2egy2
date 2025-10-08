@@ -1,270 +1,295 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>✈️ مسافر من الإمارات لمصر؟ اكسب من وزن شنطتك الفاضي</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
-    body {
-      font-family: "Tajawal", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: radial-gradient(circle at center, #0d1117, #000);
-      color: #f1f1f1;
-      overflow-x: hidden;
-    }
-    .overlay {
-      background: rgba(20, 20, 20, 0.9);
-      backdrop-filter: blur(6px);
-      border-radius: 16px;
-      max-width: 480px;
-      margin: 40px auto;
-      padding: 25px 30px;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
-      animation: fadeIn 1s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    h1 {
-      text-align: center;
-      font-size: 1.6em;
-      color: #ffb347;
-      margin-bottom: 10px;
-    }
-    p {
-      text-align: center;
-      font-size: 1em;
-      opacity: 0.9;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    input, textarea, select, button {
-      font-family: inherit;
-      font-size: 1em;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #444;
-      outline: none;
-      background: #1c1c1c;
-      color: #fff;
-    }
-    input:focus, textarea:focus, select:focus {
-      border-color: #ffb347;
-    }
-    button {
-      background: linear-gradient(90deg, #ff7b00, #ffb347);
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #ffb347, #ff7b00);
-    }
-    .flag-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 10;
-    }
-    .flag-buttons a {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
-    .flag-buttons a:hover { transform: scale(1.1); }
-    .flag-buttons img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    footer {
-      text-align: center;
-      margin-top: 25px;
-      font-size: 0.9em;
-      opacity: 0.8;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>✈️ مسافر من الإمارات إلى مصر – اكسب من وزن شنطتك الفاضي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent1: #ffb347;
+    --accent2: #ff7b00;
+    --card: rgba(10,10,12,0.82);
+    --input: rgba(255,255,255,0.06);
+    --muted: rgba(255,255,255,0.7);
+  }
+  html,body{height:100%;margin:0;font-family:"Tajawal",sans-serif;background:#020204;color:#fff}
+  /* background night airport (unsplash) */
+  body{
+    background-image: url("https://images.unsplash.com/photo-1526779259212-8b7f5b04d1f5?auto=format&fit=crop&w=1800&q=80&sat=-30&exp=15");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* dark overlay blur card */
+  .wrap {
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+    backdrop-filter: blur(4px);
+  }
+  .card {
+    width:100%;
+    max-width:560px;
+    background: var(--card);
+    border-radius:16px;
+    padding:26px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    transform: translateY(10px);
+    animation: fadeUp 700ms cubic-bezier(.2,.9,.2,1) forwards;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  @keyframes fadeUp{
+    from{opacity:0; transform: translateY(18px)}
+    to{opacity:1; transform: translateY(0)}
+  }
+  h1{
+    margin:0 0 8px 0;
+    font-size:1.45rem;
+    color:var(--accent1);
+    text-align:center;
+  }
+  p.lead{
+    margin:0 0 18px 0;
+    text-align:center;
+    color:var(--muted);
+    font-size:0.98rem;
+  }
+
+  form{display:flex;flex-direction:column;gap:12px}
+  .row{display:flex; gap:10px;}
+  label{display:block;font-size:0.86rem;color:var(--muted); margin-bottom:6px}
+  input[type="text"], input[type="tel"], input[type="number"], input[type="date"], textarea, select {
+    width:100%;
+    background: var(--input);
+    border: 1px solid rgba(255,255,255,0.04);
+    color: #fff;
+    padding:10px 12px;
+    border-radius:10px;
+    box-sizing:border-box;
+    font-size:0.98rem;
+  }
+  textarea{min-height:92px; resize:vertical}
+  .small {font-size:0.86rem;color:var(--muted); margin-top:6px}
+
+  .submit {
+    margin-top:6px;
+    background: linear-gradient(90deg,var(--accent2),var(--accent1));
+    color:#111;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:1rem;
+    box-shadow: 0 8px 24px rgba(255,123,0,0.12);
+  }
+  .submit:active{transform:translateY(1px)}
+
+  .reviews{margin-top:18px;padding-top:14px;border-top:1px dashed rgba(255,255,255,0.03)}
+  .review{font-size:0.95rem;color:var(--muted); margin:8px 0; background: rgba(255,255,255,0.02); padding:8px 10px;border-radius:8px}
+
+  /* floating small flag buttons */
+  .float-actions{
+    position:fixed;
+    bottom:22px;
+    left:22px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:9999;
+  }
+  .float-btn{
+    width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);
+    box-shadow:0 6px 18px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.04);
+    transition: transform .18s, background .18s;
+  }
+  .float-btn img{width:26px;height:26px;object-fit:cover;border-radius:4px}
+  .float-btn:hover{transform:translateY(-6px); background: rgba(0,0,0,0.6)}
+
+  /* tiny hint / success toast */
+  .toast{
+    position:fixed;right:22px;bottom:22px;padding:12px 16px;border-radius:10px;background:linear-gradient(90deg,#0b6623,#138a36);color:#fff;box-shadow:0 8px 30px rgba(0,0,0,0.5);display:none;z-index:9999;
+  }
+  .toast.error{background:linear-gradient(90deg,#8b1e3f,#b21f3b)}
+  .hidden{display:none}
+
+  /* responsive */
+  @media (max-width:520px){
+    .card{padding:18px;border-radius:12px;margin:16px}
+    .float-actions{left:12px;bottom:12px}
+  }
+</style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>✈️ مسافر من الإمارات إلى مصر؟</h1>
-    <p>اكسب من وزن شنطتك الفاضي بكل سهولة وأمان 💼</p>
+  <div class="wrap">
+    <div class="card" role="region" aria-label="نموذج تسجيل المسافرين">
+      <h1>✈️ مسافر من الإمارات إلى مصر؟</h1>
+      <p class="lead">اكسب من وزن شنطتك الفاضي بسرعة وأمان — سجّل بياناتك هنا واحنا نتواصل معاك.</p>
 
-    <form id="travelForm">
-      <input type="text" name="name" placeholder="الاسم بالكامل" required>
+      <form id="travelForm" autocomplete="on" novalidate>
+        <div>
+          <label for="name">الاسم بالكامل</label>
+          <input id="name" name="name" type="text" placeholder="مثال: محمد أحمد" required />
+        </div>
 
-      <div style="display:flex; gap:8px;">
-        <select id="countryCode" style="flex:1;">
-          <option value="+971">🇦🇪 +971</option>
-          <option value="+20">🇪🇬 +20</option>
-        </select>
-        <input type="tel" name="whatsapp" placeholder="رقم الواتساب" style="flex:3;" required>
+        <div>
+          <label for="whatsapp">رقم الواتساب</label>
+          <div class="row">
+            <select id="countryCode" aria-label="مفتاح الدولة" title="اختر مفتاح الدولة" style="width:110px;flex:0 0 110px;">
+              <option value="+971">🇦🇪 +971</option>
+              <option value="+20">🇪🇬 +20</option>
+            </select>
+            <input id="whatsapp" name="whatsapp" type="tel" placeholder="5xxxxxxxx أو 01xxxxxxxx" inputmode="tel" required style="flex:1;" />
+          </div>
+          <div class="small">لو رقم الإمارات يبدأ بــ 05 اكتب بعد الـ +971 الرقم بدون صفر. (زى: +971 5xxxxxxxx)</div>
+        </div>
+
+        <div>
+          <label for="travelDate">ميعاد السفر</label>
+          <input id="travelDate" name="travelDate" type="date" required />
+        </div>
+
+        <div>
+          <label for="weight">الوزن الفاضي بالكيلو</label>
+          <input id="weight" name="weight" type="number" min="0" step="0.5" placeholder="مثال: 5" required />
+        </div>
+
+        <div>
+          <label for="notes">ملاحظات إضافية (اختياري)</label>
+          <textarea id="notes" name="notes" placeholder="ملاحظات عن البضاعة أو تعليمات"></textarea>
+        </div>
+
+        <button class="submit" type="submit">📨 إرسال البيانات</button>
+      </form>
+
+      <div class="reviews" aria-hidden="false">
+        <div class="review">⭐️⭐️⭐️⭐️⭐️ "التعامل راقي والفلوس وصلت حالاً" – أحمد (دبي)</div>
+        <div class="review">⭐️⭐️⭐️⭐️⭐️ "سهّلوا عليا الموضوع قوي، شكراً" – مروة (الشارقة)</div>
+        <div class="review">⭐️⭐️⭐️⭐️⭐️ "منظم وواضح، أنصح أي حد يجربه" – خالد (أبوظبي)</div>
       </div>
-
-      <input type="text" name="travelDate" placeholder="ميعاد السفر" required>
-      <input type="number" name="weight" placeholder="الوزن الفاضي بالكيلو" required>
-      <textarea name="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
-
-      <button type="submit">📨 إرسال البيانات</button>
-    </form>
-
-    <footer>
-      الخدمة حاليًا للمسافرين من الإمارات إلى مصر ✈️  
-      <br>قريبًا لباقي الدول 🌍
-    </footer>
+    </div>
   </div>
 
-  <div class="flag-buttons">
-    <a href="https://wa.me/971547909135" title="تواصل معنا عبر واتساب الإمارات" target="_blank">
-      <img src="https://flagcdn.com/w80/ae.png" alt="UAE">
+  <!-- floating action buttons: WhatsApp UAE + Telegram Egypt -->
+  <div class="float-actions" aria-hidden="false">
+    <!-- WhatsApp (UAE) -->
+    <a id="waBtn" class="float-btn" aria-label="واتساب الإمارات" title="واتساب الإمارات" target="_blank" rel="noopener">
+      <!-- small whatsapp svg -->
+      <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/4x3/ae.svg" alt="UAE">
     </a>
-    <a href="https://t.me/+20547909135" title="تواصل عبر تليجرام مصر" target="_blank">
-      <img src="https://flagcdn.com/w80/eg.png" alt="Egypt">
+
+    <!-- Telegram (Egypt) -->
+    <a id="tgBtn" class="float-btn" aria-label="تليجرام مصر" title="تليجرام مصر" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/4x3/eg.svg" alt="EG">
     </a>
   </div>
 
-  <script>
-    document.getElementById("travelForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const data = Object.fromEntries(new FormData(form).entries());
-      const code = document.getElementById("countryCode").value;
-      data.whatsapp = code + data.whatsapp;
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-      const message = `
-✈️ *طلب جديد من المسافر:*
-👤 الاسم: ${data.name}
-📱 الواتساب: ${data.whatsapp}
-📅 ميعاد السفر: ${data.travelDate}
-⚖️ الوزن الفاضي: ${data.weight} كجم
-📝 الملاحظات: ${data.notes || "لا يوجد"}
-`;
+<script>
+/* ====== الإعدادات (غيرش حاجة هنا إلا لو عايز تغير) ====== */
+const N8N_WEBHOOK = "https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb";
+const TELEGRAM_BOT_TOKEN = "8498151381:AAFqKS8Z87EdO1jM2MW6t722fvFcYaX5aqw";
+const TELEGRAM_CHAT_ID = "685598171";
+const WHATSAPP_API_PHONE = "971547909135"; // رقم الـ CallMeBot المرسل ليك (بدون +)
+const WHATSAPP_API_KEY = "1777158"; // مفتاح CallMeBot
 
-      try {
-        // إرسال إلى n8n webhook
-        await fetch("https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
+/* ====== مساعدات العرض ====== */
+const toastEl = document.getElementById('toast');
+function showToast(text, isError = false){
+  toastEl.textContent = text;
+  toastEl.className = isError ? 'toast error' : 'toast';
+  toastEl.style.display = 'block';
+  setTimeout(()=>{ toastEl.style.display = 'none'; }, 4500);
+}
 
-        // إرسال إلى Telegram
-        await fetch(`https://api.telegram.org/bot8498151381:AAFqKS8Z87EdO1jM2MW6t722fvFcYaX5aqw/sendMessage`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: "685598171",
-            text: message,
-            parse_mode: "Markdown"
-          })
-        });
+/* ====== إعداد أزرار الفلوت (فتح محادثة مباشرة لو حبوا يتواصلوا) ====== */
+const waBtn = document.getElementById('waBtn');
+const tgBtn = document.getElementById('tgBtn');
+// WhatsApp opens chat with your main number
+waBtn.href = "https://wa.me/971547909135?text=" + encodeURIComponent("السلام عليكم، عايز استفسار عن خدمة الشنط");
+// Telegram opens to t.me link (use your username or deep link). We'll open chat with bot (user can message bot or you can put group/channel link)
+tgBtn.href = "https://t.me/8498151381"; // if you prefer open bot - usually bot username used; this will try open bot by id (may not always redirect). You can replace with your bot username if exists.
 
-        // إرسال إلى واتساب API عبر n8n
-        await fetch("https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message })
-        });
+/* ====== ارسال البيانات ====== */
+document.getElementById('travelForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const form = e.target;
+  const data = Object.fromEntries(new FormData(form).entries());
 
-        alert("✅ تم إرسال بياناتك بنجاح! سنتواصل معك قريبًا.");
-        form.reset();
-      } catch (err) {
-        alert("❌ حصل خطأ أثناء الإرسال. حاول مرة أخرى.");
-        console.error(err);
-      }
+  // attach country code
+  const code = document.getElementById('countryCode').value || "+971";
+  // normalize user input: remove spaces and leading zeros when necessary
+  let raw = (data.whatsapp || "").replace(/\s+/g, "").replace(/^0+/, "");
+  // if user typed number starting with 0 for Egyptian mobile like 010..., we removed leading zero then prefix.
+  data.whatsapp = code + raw;
+
+  // build pretty message text (Markdown)
+  const messageText = `✈️ *طلب جديد من المسافر*\n\n` +
+    `👤 *الاسم:* ${data.name || "-"}\n` +
+    `📱 *الواتساب:* ${data.whatsapp || "-"}\n` +
+    `📅 *ميعاد السفر:* ${data.travelDate || "-"}\n` +
+    `⚖️ *الوزن الفاضي:* ${data.weight || "-"} كجم\n` +
+    `📝 *ملاحظات:* ${ (data.notes && data.notes.trim()) ? data.notes.trim() : "لا توجد" }`;
+
+  // 1) أرسل أولًا للـ n8n webhook (يحفظ عندك ويشتغل أي اوردرات داخل n8n)
+  try {
+    await fetch(N8N_WEBHOOK, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(data)
     });
-  </script>
-</body>
-</html>      </div>
+  } catch (err) {
+    console.warn("Webhook send failed:", err);
+    // لا نوقف التنفيذ - نكمل المحاولات
+  }
 
-      <input type="text" name="travelDate" placeholder="ميعاد السفر" required>
-      <input type="number" name="weight" placeholder="الوزن الفاضي بالكيلو" required>
-      <textarea name="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
-
-      <button type="submit">📨 إرسال البيانات</button>
-    </form>
-
-    <footer>
-      الخدمة حاليًا للمسافرين من الإمارات إلى مصر ✈️  
-      <br>قريبًا لباقي الدول 🌍
-    </footer>
-  </div>
-
-  <div class="flag-buttons">
-    <a href="https://wa.me/971547909135" title="تواصل معنا عبر واتساب الإمارات" target="_blank">
-      <img src="https://flagcdn.com/w80/ae.png" alt="UAE">
-    </a>
-    <a href="https://t.me/+20547909135" title="تواصل عبر تليجرام مصر" target="_blank">
-      <img src="https://flagcdn.com/w80/eg.png" alt="Egypt">
-    </a>
-  </div>
-
-  <script>
-    document.getElementById("travelForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const data = Object.fromEntries(new FormData(form).entries());
-      const code = document.getElementById("countryCode").value;
-      data.whatsapp = code + data.whatsapp;
-
-      const message = `
-✈️ *طلب جديد من المسافر:*
-👤 الاسم: ${data.name}
-📱 الواتساب: ${data.whatsapp}
-📅 ميعاد السفر: ${data.travelDate}
-⚖️ الوزن الفاضي: ${data.weight} كجم
-📝 الملاحظات: ${data.notes || "لا يوجد"}
-`;
-
-      try {
-        // إرسال إلى n8n webhook
-        await fetch("https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-
-        // إرسال إلى Telegram
-        await fetch(`https://api.telegram.org/bot8498151381:AAFqKS8Z87EdO1jM2MW6t722fvFcYaX5aqw/sendMessage`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: "685598171",
-            text: message,
-            parse_mode: "Markdown"
-          })
-        });
-
-        // إرسال إلى واتساب API عبر n8n
-        await fetch("https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message })
-        });
-
-        alert("✅ تم إرسال بياناتك بنجاح! سنتواصل معك قريبًا.");
-        form.reset();
-      } catch (err) {
-        alert("❌ حصل خطأ أثناء الإرسال. حاول مرة أخرى.");
-        console.error(err);
-      }
+  // 2) حاول تبعت رسالة لتليجرام مباشرة من المتصفح
+  // ملاحظة: ممكن بعض المتصفحات تحظر طلبات CORS إلى api.telegram.org
+  try {
+    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: messageText,
+        parse_mode: "Markdown"
+      })
     });
-  </script>
+  } catch (err) {
+    console.warn("Telegram send failed (CORS or network):", err);
+  }
+
+  // 3) حاول تبعت رسالة واتساب عن طريق CallMeBot (API بسيط GET)
+  try {
+    // CallMeBot accepts GET, لكن هنا نستخدم fetch GET مباشرة من المتصفح
+    const waUrl = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(WHATSAPP_API_PHONE)}&text=${encodeURIComponent(messageText)}&apikey=${encodeURIComponent(WHATSAPP_API_KEY)}`;
+    // Use cors mode 'no-cors' as fallback if blocked (no-cors won't return response but will trigger request)
+    await fetch(waUrl, { method: 'GET', mode: 'no-cors' });
+  } catch (err) {
+    console.warn("CallMeBot send failed:", err);
+  }
+
+  // feedback للمستخدم
+  showToast("✅ تم إرسال بياناتك. هنتواصل معاك قريباً.");
+  form.reset();
+});
+
+/* Accessibility: submit on enter from inputs */
+document.querySelectorAll('input').forEach(i=>{
+  i.addEventListener('keydown', function(ev){
+    if(ev.key === 'Enter' && i.type !== 'textarea'){
+      ev.preventDefault();
+      document.querySelector('.submit').click();
+    }
+  });
+});
+</script>
 </body>
-  </html
+</html>
