@@ -25,7 +25,8 @@
       color:var(--text);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      padding:28px 16px;
+      padding:20px 12px;
+      font-size: 14px;
     }
 
     .wrap{
@@ -35,8 +36,8 @@
 
     .card{
       background:var(--card-bg);
-      border-radius:18px;
-      padding:28px;
+      border-radius:16px;
+      padding:24px;
       box-shadow:0 10px 30px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(6px);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -47,43 +48,49 @@
       gap:12px;
       align-items:center;
       justify-content:space-between;
-      margin-bottom:24px;
+      margin-bottom:20px;
     }
 
     header h1{
-      font-size:1.3rem;
+      font-size:1.2rem;
       margin:0;
       color:var(--accent);
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:8px;
     }
     header p.lead{
       margin:0;
-      font-size:0.95rem;
+      font-size:0.9rem;
       color:var(--text-secondary);
     }
 
     .cols{
       display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:24px;
+      grid-template-columns: 1fr 380px;
+      gap:20px;
     }
-    @media(max-width:900px){ .cols{ grid-template-columns: 1fr; } }
+    @media(max-width:900px){ 
+      .cols{ 
+        grid-template-columns: 1fr; 
+        gap:16px;
+      } 
+    }
 
     /* form */
-    form{display:flex;flex-direction:column;gap:16px}
-    label{font-weight:600;font-size:0.95rem; color: var(--text);}
-    .field{display:flex;flex-direction:column;gap:10px}
+    form{display:flex;flex-direction:column;gap:14px}
+    label{font-weight:600;font-size:0.9rem; color: var(--text);}
+    .field{display:flex;flex-direction:column;gap:8px}
     input[type="text"], input[type="number"], input[type="tel"], input[type="datetime-local"], textarea, select{
       width:100%;
-      padding:12px 14px;
+      padding:14px 16px;
       border-radius:10px;
       border:1px solid #444;
-      font-size:0.98rem;
+      font-size:0.95rem;
       background:rgba(20, 20, 30, 0.8);
       color: var(--text);
       transition: border-color 0.2s;
+      font-family: 'Cairo', sans-serif;
     }
     input:focus, select:focus, textarea:focus {
       border-color: var(--accent);
@@ -93,23 +100,24 @@
     .row{display:flex;gap:12px}
     .row .col{flex:1}
 
-    .small-note{font-size:0.85rem;color:var(--text-secondary);opacity:0.85}
-    .inline-choices{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .small-note{font-size:0.8rem;color:var(--text-secondary);opacity:0.85}
+    .inline-choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
     .opt{
-      display:inline-flex;align-items:center;gap:8px;background:rgba(40, 40, 50, 0.8);border-radius:10px;padding:10px 12px;border:1px solid rgba(100, 100, 150, 0.3);
-      cursor:pointer;font-weight:600;transition: background 0.2s;
+      display:inline-flex;align-items:center;gap:6px;background:rgba(40, 40, 50, 0.8);border-radius:10px;padding:10px 12px;border:1px solid rgba(100, 100, 150, 0.3);
+      cursor:pointer;font-weight:600;transition: background 0.2s; font-size: 0.9rem;
     }
     .opt:hover {
       background: rgba(50, 50, 70, 0.8);
     }
     .opt input{accent-color:var(--accent)}
     .btn{
-      background:var(--accent); color:#fff;border:none;border-radius:10px;padding:14px 16px;font-weight:700;cursor:pointer;font-size:1rem;
+      background:var(--accent); color:#fff;border:none;border-radius:10px;padding:14px 20px;font-weight:700;cursor:pointer;font-size:0.95rem;
       transition:background .15s, transform .08s;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
     }
     .btn:active{transform:translateY(1px)}
     .btn[disabled]{opacity:.6;cursor:not-allowed}
@@ -117,13 +125,13 @@
     /* loading spinner */
     .spinner {
       display: inline-block;
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       border: 3px solid rgba(255,255,255,.3);
       border-radius: 50%;
       border-top-color: #fff;
       animation: spin 1s ease-in-out infinite;
-      margin-left: 10px;
+      margin-right: 8px;
     }
     @keyframes spin {
       to { transform: rotate(360deg); }
@@ -131,23 +139,23 @@
 
     /* right column (info + reviews) */
     .side{
-      display:flex;flex-direction:column;gap:16px;
+      display:flex;flex-direction:column;gap:14px;
     }
     .card-mini{
       background:linear-gradient(180deg, rgba(40, 40, 50, 0.8), rgba(35, 35, 45, 0.7));
-      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.05);
+      padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.05);
     }
-    .review{background:rgba(50, 50, 70, 0.6);padding:12px;border-radius:10px;font-size:0.95rem; margin-bottom: 10px;}
+    .review{background:rgba(50, 50, 70, 0.6);padding:12px;border-radius:10px;font-size:0.9rem; margin-bottom: 10px;}
 
-    footer{margin-top:20px;text-align:center;color:var(--text-secondary);opacity:.9;font-weight:600}
+    footer{margin-top:16px;text-align:center;color:var(--text-secondary);opacity:.9;font-weight:600; font-size: 0.85rem;}
 
-    .contacts{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px; justify-content: center;}
-    .wa-link{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:50%;background:#25D366;color:#fff;text-decoration:none;font-weight:700; width: 50px; height: 50px; justify-content: center;}
+    .contacts{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px; justify-content: center;}
+    .wa-link{display:inline-flex;align-items:center;gap:6px;padding:10px 12px;border-radius:50%;background:#25D366;color:#fff;text-decoration:none;font-weight:700; width: 46px; height: 46px; justify-content: center;}
     .wa-eg{background:#0c7abf}
-    .flag{font-size:18px;margin-left:6px}
+    .flag{font-size:16px;margin-left:4px}
 
-    .note-success{display:none;padding:14px;border-radius:10px;background:linear-gradient(90deg,rgba(20, 100, 50, 0.7),rgba(15, 90, 45, 0.6));color:#a0e0a0; font-weight:700;margin-top:8px; text-align: center;}
-    .note-error{display:none;padding:14px;border-radius:10px;background:linear-gradient(90deg,rgba(100, 20, 20, 0.7),rgba(90, 15, 15, 0.6));color:#e0a0a0; font-weight:700;margin-top:8px; text-align: center;}
+    .note-success{display:none;padding:12px;border-radius:10px;background:linear-gradient(90deg,rgba(20, 100, 50, 0.7),rgba(15, 90, 45, 0.6));color:#a0e0a0; font-weight:700;margin-top:8px; text-align: center; font-size: 0.9rem;}
+    .note-error{display:none;padding:12px;border-radius:10px;background:linear-gradient(90deg,rgba(100, 20, 20, 0.7),rgba(90, 15, 15, 0.6));color:#e0a0a0; font-weight:700;margin-top:8px; text-align: center; font-size: 0.9rem;}
 
     /* تنسيق جديد لأرقام الهواتف */
     .phone-input-container {
@@ -159,25 +167,97 @@
       overflow: hidden;
     }
     .country-code {
-      padding: 12px 14px;
+      padding: 14px 12px;
       background: rgba(40, 40, 60, 0.9);
       color: var(--accent);
       font-weight: 700;
       border-right: 1px solid #444;
-      min-width: 90px;
+      min-width: 70px;
       text-align: center;
+      font-size: 0.95rem;
     }
     .phone-number-input {
       border: none !important;
       flex: 1;
-      padding: 12px 14px;
+      padding: 14px 16px;
       background: transparent !important;
+      font-size: 0.95rem;
     }
     .phone-label {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    /* تحسين تنسيق datetime-local */
+    input[type="datetime-local"] {
+      padding: 14px 16px;
+      font-size: 0.95rem;
+    }
+
+    /* تحسين التجاوب مع الشاشات الصغيرة */
+    @media (max-width: 768px) {
+      body {
+        padding: 12px 8px;
+        font-size: 13px;
+      }
+      
+      .card {
+        padding: 16px;
+        border-radius: 12px;
+      }
+      
+      header h1 {
+        font-size: 1.1rem;
+      }
+      
+      .cols {
+        gap: 12px;
+      }
+      
+      .row {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      input[type="text"], input[type="number"], input[type="tel"], input[type="datetime-local"], textarea, select {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+      }
+      
+      .phone-number-input, .country-code {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+      }
+      
+      .country-code {
+        min-width: 65px;
+      }
+      
+      .btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 8px 6px;
+      }
+      
+      .card {
+        padding: 12px;
+      }
+      
+      header h1 {
+        font-size: 1rem;
+      }
+      
+      header p.lead {
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -245,7 +325,7 @@
                 <label class="opt" style="background:rgba(40, 40, 50, 0.8);border:1px solid rgba(100, 100, 150, 0.3)"><input type="checkbox" name="items" value="تسجيل موبايل على الباسبور"> متاح معاك تسجيل موبايل على الباسبور</label>
 
                 <label class="opt" style="background:rgba(40, 40, 50, 0.8);border:1px solid rgba(100, 100, 150, 0.3)">
-                  <input type="checkbox" name="items" value="باكدج الكترونيات (موبايلات/تابلت/لابتوب)"> باكدج إلكترونيات (موبايلات - تابلت - لابتوب) <div style="font-size:0.86rem;color:#a0a0b0;margin-top:4px">ملاحظة: هتخصم من الوزن</div>
+                  <input type="checkbox" name="items" value="باكدج الكترونيات (موبايلات/تابلت/لابتوب)"> باكدج إلكترونيات (موبايلات - تابلت - لابتوب) <div style="font-size:0.8rem;color:#a0a0b0;margin-top:4px">ملاحظة: هتخصم من الوزن</div>
                 </label>
 
                 <label class="opt" style="background:rgba(40, 40, 50, 0.8);border:1px solid rgba(100, 100, 150, 0.3)">
@@ -299,8 +379,8 @@
             <!-- submit -->
             <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
               <button class="btn" type="submit" id="submitBtn">
-                <span id="btnText">إرسال البيانات</span>
                 <div class="spinner" id="spinner" style="display: none;"></div>
+                <span id="btnText">إرسال البيانات</span>
               </button>
               <div class="note-success" id="successNote">✅ تم إرسال البيانات بنجاح! هنتواصل معاك قريباً.</div>
               <div class="note-error" id="errorNote">❌ حصل خطأ أثناء الإرسال، حاول تاني.</div>
@@ -311,13 +391,13 @@
         <!-- sidebar: info + reviews + contacts -->
         <aside class="side">
           <div class="card-mini">
-            <h3 style="margin:0 0 8px 0; color: var(--accent);">إزاي الشغل؟</h3>
-            <p style="margin:0;font-size:0.95rem;line-height:1.5; color: var(--text-secondary);">إحنا بننسق مع مسافرين راجعين مصر — لو معاك وزن فاضي أو تقدر تسجل موبايل على الباسبور أو تجيب باكدج إلكترونيات/ملابس، سجّل هنا واحنا نرد عليك بالأسعار وطريقة التسليم.</p>
+            <h3 style="margin:0 0 8px 0; color: var(--accent); font-size: 1rem;">إزاي الشغل؟</h3>
+            <p style="margin:0;font-size:0.9rem;line-height:1.5; color: var(--text-secondary);">إحنا بننسق مع مسافرين راجعين مصر — لو معاك وزن فاضي أو تقدر تسجل موبايل على الباسبور أو تجيب باكدج إلكترونيات/ملابس، سجّل هنا واحنا نرد عليك بالأسعار وطريقة التسليم.</p>
           </div>
 
           <div class="card-mini">
-            <h4 style="margin:0 0 8px 0; color: var(--accent);">نقاط مهمة</h4>
-            <ul style="margin:0;padding-left:18px; color: var(--text-secondary);">
+            <h4 style="margin:0 0 8px 0; color: var(--accent); font-size: 0.95rem;">نقاط مهمة</h4>
+            <ul style="margin:0;padding-left:18px; color: var(--text-secondary); font-size: 0.9rem;">
               <li>البيانات بتتخزن آمن عندنا وهنستخدمها للتواصل بس.</li>
               <li>ما نتحملش أي غرامات جمركية لو حصلت خلال النقل.</li>
               <li>الرسوم والعمولة هتكون واضحة قبل أي اتفاق.</li>
@@ -325,22 +405,22 @@
           </div>
 
           <div class="card-mini">
-            <h4 style="margin:0 0 8px 0; color: var(--accent);">آراء الناس</h4>
+            <h4 style="margin:0 0 8px 0; color: var(--accent); font-size: 0.95rem;">آراء الناس</h4>
             <div class="review">"تعامل محترم وسهل، استلمت كل حاجة سليمة." — أحمد، دبي</div>
             <div class="review">"رتبوا كل حاجة بسرعة وكانوا واضحين في الشروط." — منى، الشارقة</div>
             <div class="review">"خدمة ممتازة وأنصح أي حد يجرب." — خالد، أبوظبي</div>
           </div>
 
           <div class="card-mini">
-            <h4 style="margin:0 0 8px 0; color: var(--accent);">تواصل مباشر</h4>
+            <h4 style="margin:0 0 8px 0; color: var(--accent); font-size: 0.95rem;">تواصل مباشر</h4>
             <div class="contacts">
               <a class="wa-link" href="https://wa.me/971547909135" target="_blank" rel="noopener" title="واتساب الإمارات">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.189-3.553-8.436"/>
                 </svg>
               </a>
               <a class="wa-link wa-eg" href="https://wa.me/201102710577" target="_blank" rel="noopener" title="واتساب مصر">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.189-3.553-8.436"/>
                 </svg>
               </a>
@@ -441,6 +521,17 @@
       const items = Array.from(mainForm.querySelectorAll('input[name="items"]:checked')).map(i=>i.value);
       data.items = items.join(' | ') || '';
 
+      // إضافة المفاتيح الدولية للأرقام في البيانات المرسلة
+      const phoneEg = mainForm.querySelector('input[name="phone_eg"]').value.trim();
+      const phoneAe = mainForm.querySelector('input[name="phone_ae"]').value.trim();
+      
+      if (phoneEg) {
+        data.phone_eg_full = `+20${phoneEg}`;
+      }
+      if (phoneAe) {
+        data.phone_ae_full = `+971${phoneAe}`;
+      }
+
       // append كل الحقول كسلاسل
       for(const k in data){
         formData.append(k, data[k]);
@@ -484,4 +575,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
