@@ -1,362 +1,197 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>✈️ مسافر من الإمارات إلى مصر – تسجيل</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --accent1:#ffb347; --accent2:#ff7b00;
-    --card: rgba(6,8,12,0.86); --muted: rgba(255,255,255,0.75);
-    --input-bg: rgba(255,255,255,0.04);
-  }
-  html,body{height:100%;margin:0;font-family:"Tajawal",sans-serif;background:#050507;color:#fff}
-  body{
-    background-image: url("https://images.unsplash.com/photo-1526779259212-8b7f5b04d1f5?auto=format&fit=crop&w=1800&q=60&sat=-40&exp=12");
-    background-size: cover; background-position:center center; background-attachment: fixed;
-  }
-  .page{
-    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
-    backdrop-filter: blur(3px);
-  }
-  .card{
-    width:100%; max-width:720px; border-radius:14px; padding:22px; background:var(--card);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.03);
-    animation:fadeUp .6s ease both;
-  }
-  @keyframes fadeUp{from{opacity:0; transform:translateY(18px)}to{opacity:1; transform:none}}
-  h1{margin:0 0 6px 0; color:var(--accent1); text-align:center; font-size:1.3rem}
-  p.sub{margin:0 0 16px 0; text-align:center; color:var(--muted)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مسافر من الإمارات إلى مصر ✈️</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504198458649-3128b932f49b') no-repeat center center/cover;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-  form{display:flex; flex-direction:column; gap:12px}
-  label{display:block; font-size:0.95rem; color:var(--muted); margin-bottom:6px}
-  .field {display:flex; flex-direction:column; gap:6px;}
-  input[type="text"], input[type="tel"], input[type="number"], input[type="date"], input[type="datetime-local"], textarea, select {
-    width:100%; padding:11px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.04);
-    background:var(--input-bg); color:#fff; font-size:0.98rem; outline:none;
-  }
-  textarea{min-height:96px; resize:vertical}
-  .row {display:flex; gap:10px; align-items:center;}
-  .small{font-size:0.86rem; color:rgba(255,255,255,0.6)}
-  .radio-row{display:flex; gap:12px; flex-wrap:wrap}
-  .radio-row label{display:flex; gap:8px; align-items:center; background:rgba(255,255,255,0.02); padding:8px 10px; border-radius:8px; cursor:pointer}
-  .checkbox-item{display:flex; flex-direction:column; gap:6px; padding:8px; border-radius:8px; background:rgba(255,255,255,0.02)}
-  .secondary{font-size:0.86rem; color:rgba(255,255,255,0.6); margin-top:6px}
-  .submit{margin-top:6px; background:linear-gradient(90deg,var(--accent2),var(--accent1)); border:none; padding:12px; border-radius:10px; cursor:pointer; font-weight:700; color:#111}
-  .submit:active{transform:translateY(1px)}
-  .reviews{margin-top:14px; color:var(--muted); font-size:0.95rem}
-  /* drag & drop */
-  .dropzone{border:2px dashed rgba(255,255,255,0.06); padding:14px; border-radius:10px; text-align:center; background:rgba(255,255,255,0.015);}
-  .dropzone.dragover{border-color:var(--accent1); background: rgba(255,255,255,0.02)}
-  .files-list{margin-top:10px; display:flex; flex-direction:column; gap:8px}
-  .file-item{display:flex; justify-content:space-between; gap:10px; align-items:center; background:rgba(0,0,0,0.15); padding:8px 10px; border-radius:8px; font-size:0.95rem}
-  .file-remove{background:transparent;border:0;color:#ffb3b3;cursor:pointer}
-  /* floating icons */
-  .float-actions{position:fixed; left:16px; bottom:16px; display:flex; flex-direction:column; gap:10px; z-index:9999}
-  .float {width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.04); cursor:pointer}
-  .float img{width:26px;height:26px}
-  /* toast */
-  .toast{position:fixed; right:18px; bottom:18px; background:linear-gradient(90deg,#0b6623,#138a36); padding:12px 14px; border-radius:10px; color:#fff; box-shadow:0 8px 30px rgba(0,0,0,0.5); display:none; z-index:9999}
-  .toast.error{background:linear-gradient(90deg,#8b1e3f,#b21f3b)}
-  @media (max-width:720px){
-    .card{margin:12px}
-    .row{flex-direction:column; align-items:stretch}
-    .float-actions{left:10px; bottom:10px}
-  }
-</style>
+    form {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 25px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff9800;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 15px;
+      background: #222;
+      color: #fff;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+      width: auto;
+      margin-left: 5px;
+      transform: scale(1.2);
+    }
+
+    .options label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    button {
+      background-color: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e68900;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .country-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .country-input div {
+      flex: 1;
+    }
+  </style>
 </head>
 <body>
-  <div class="page">
-    <div class="card" role="region" aria-label="نموذج تسجيل المسافرين">
-      <h1>✈️ مسافر من الإمارات إلى مصر؟</h1>
-      <p class="sub">سجّل بياناتك هنا عشان ننسق معاك. كل البيانات سرية وهنرد عليك على الواتساب فوراً.</p>
 
-      <form id="travelForm" autocomplete="on" novalidate>
-        <!-- الاسم -->
-        <div class="field">
-          <label>الاسم الكامل *</label>
-          <input type="text" id="name" name="name" placeholder="اكتب اسمك بالكامل" required>
-        </div>
+  <form id="travelForm">
+    <h2>✈️ مسافر من الإمارات إلى مصر – اكسب من وزن شنطتك الفاضي</h2>
 
-        <!-- المدينة -->
-        <div class="field">
-          <label>مقيم في أي مدينة في الإمارات؟ *</label>
-          <select id="city" name="city" required>
-            <option value="">اختار المدينة</option>
-            <option>دبي</option>
-            <option>أبو ظبي</option>
-            <option>الشارقة</option>
-            <option>العين</option>
-            <option>عجمان</option>
-            <option>الفجيرة</option>
-            <option>رأس الخيمة</option>
-          </select>
-        </div>
+    <label>الاسم الكامل *</label>
+    <input type="text" name="fullname" required>
 
-        <!-- تاريخ ووقت السفر -->
-        <div class="field">
-          <label>راجع إمتى مصر؟ *</label>
-          <!-- datetime-local يفتح تقويم مع اختيار الوقت -->
-          <input id="travelDate" name="travelDate" type="datetime-local" required>
-          <div class="small">اختار اليوم والشهر والسنة والوقت (التقويم والساعة يظهران عند الضغط)</div>
-        </div>
+    <label>مقيم في أي مدينة في الإمارات؟ *</label>
+    <select name="city" required>
+      <option value="">اختر المدينة</option>
+      <option>دبي</option>
+      <option>أبو ظبي</option>
+      <option>الشارقة</option>
+      <option>العين</option>
+      <option>عجمان</option>
+      <option>الفجيرة</option>
+      <option>رأس الخيمة</option>
+    </select>
 
-        <!-- وزن فاضي -->
-        <div class="field">
-          <label>معاك وزن فاضي؟ *</label>
-          <div class="radio-row" id="weightRadios">
-            <label><input type="radio" name="hasWeight" value="نعم" required> نعم</label>
-            <label><input type="radio" name="hasWeight" value="لا" required> لا</label>
-          </div>
-          <div id="weightExtra" style="display:none; margin-top:8px;">
-            <label>حوالي كام كيلو فاضي معاك؟</label>
-            <input type="number" id="weight" name="weight" min="0" step="0.5" placeholder="مثال: 5">
-            <div class="small">اكتب تقريبى الكيلو جرام المتاح</div>
-          </div>
-        </div>
+    <label>راجع امتى مصر؟ *</label>
+    <input type="datetime-local" name="returnDate" required>
 
-        <!-- نوع الاغراض -->
-        <div class="field">
-          <label>نوع الأغراض اللي ممكن تخدها معاك؟ *</label>
-          <div class="checkbox-item">
-            <label><input type="checkbox" name="items" value="تسجيل موبايل على جواز"> متاح معاك تسجيل موبايل على الباسبور</label>
-            <div class="secondary">باكدج إلكترونيات (موبايلات - تابلت - لابتوب) — عمولة لكل قطعة. ملاحظة: هذه الأغراض تنقص من الوزن.</div>
-            <label style="margin-top:8px;"><input type="checkbox" name="items" value="باكدج ملابس احذية عطور"> باكدج (ملابس + أحذية + عطور) بالكيلو</label>
-          </div>
-        </div>
+    <label>معاك وزن فاضي؟ *</label>
+    <div class="options">
+      <label><input type="radio" name="weight" value="نعم" required> نعم</label>
+      <label><input type="radio" name="weight" value="لا"> لا</label>
+    </div>
 
-        <!-- زيارة ولا اقامة -->
-        <div class="field">
-          <label>زيارة ولا إقامة؟ *</label>
-          <div class="radio-row">
-            <label><input type="radio" name="visitType" value="زيارة" required> زيارة</label>
-            <label><input type="radio" name="visitType" value="اقامة" required> إقامة</label>
-          </div>
-        </div>
+    <div id="weightField" class="hidden">
+      <label>حوالي كام كيلو فاضي معاك؟</label>
+      <input type="number" name="extraWeight" min="1" placeholder="مثلاً 10 كيلو">
+    </div>
 
-        <!-- ارقام واتساب -->
-        <div class="field">
-          <label>اكتب رقمك هنا للتواصل واتساب (أدخل واحد أو الاثنين لكن لازم تدخل رقم واحد على الأقل)</label>
-          <div class="row">
-            <div style="flex:1">
-              <label class="small">مصر 🇪🇬 (+20)</label>
-              <div class="row">
-                <div style="flex:0 0 86px">
-                  <select id="codeEG" aria-label="مفتاح مصر" style="width:100%; padding:10px; border-radius:8px; background:var(--input-bg); color:#fff">
-                    <option value="+20">+20</option>
-                  </select>
-                </div>
-                <input id="phoneEG" name="phoneEG" type="tel" placeholder="مثال: 1001234567" inputmode="tel" style="flex:1">
-              </div>
-            </div>
+    <label>نوع الأغراض اللي ممكن تخدها معاك؟ *</label>
+    <div class="options">
+      <label><input type="checkbox" name="items" value="تسجيل موبيل على الباسبور"> تسجيل موبيل على الباسبور</label>
+      <label><input type="checkbox" name="items" value="باكدج إلكترونيات (موبايلات، تابلت، لابتوب)"> باكدج إلكترونيات (موبايلات، تابلت، لابتوب)</label>
+      <label><input type="checkbox" name="items" value="باكدج (ملابس + أحذية + عطور)"> باكدج (ملابس + أحذية + عطور)</label>
+    </div>
 
-            <div style="flex:1">
-              <label class="small">الإمارات 🇦🇪 (+971)</label>
-              <div class="row">
-                <div style="flex:0 0 86px">
-                  <select id="codeAE" aria-label="مفتاح الامارات" style="width:100%; padding:10px; border-radius:8px; background:var(--input-bg); color:#fff">
-                    <option value="+971">+971</option>
-                  </select>
-                </div>
-                <input id="phoneAE" name="phoneAE" type="tel" placeholder="مثال: 501234567" inputmode="tel" style="flex:1">
-              </div>
-            </div>
-          </div>
-          <div class="small">حط رقم مصر أو الإمارات أو الاتنين — هنستخدم الرقم للتواصل على الواتساب.</div>
-        </div>
+    <label>زيارة ولا إقامة؟ *</label>
+    <div class="options">
+      <label><input type="radio" name="stayType" value="زيارة" required> زيارة</label>
+      <label><input type="radio" name="stayType" value="إقامة"> إقامة</label>
+    </div>
 
-        <button class="submit" type="submit">📨 إرسال البيانات</button>
-      </form>
-
-      <div class="reviews" style="margin-top:14px">
-        <div>الخدمة متوفرة الآن للمسافرين من الإمارات إلى مصر ✈️</div>
+    <label>رقم التواصل واتساب *</label>
+    <div class="country-input">
+      <div>
+        <span>🇪🇬 +20</span>
+        <input type="tel" name="phoneEgypt" placeholder="رقمك في مصر">
+      </div>
+      <div>
+        <span>🇦🇪 +971</span>
+        <input type="tel" name="phoneUAE" placeholder="رقمك في الإمارات">
       </div>
     </div>
-  </div>
 
-  <!-- floating buttons: whatsapp & telegram icons with flags -->
-  <div class="float-actions" aria-hidden="false">
-    <a id="floatWA" class="float" title="واتساب">
-      <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/4x3/ae.svg" alt="UAE"/>
-    </a>
-    <a id="floatTG" class="float" title="تليجرام">
-      <img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/flags/4x3/eg.svg" alt="EG"/>
-    </a>
-  </div>
+    <button type="submit">إرسال البيانات ✅</button>
+  </form>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    const weightRadios = document.querySelectorAll('input[name="weight"]');
+    const weightField = document.getElementById('weightField');
+    const form = document.getElementById('travelForm');
 
-<script>
-/* ====== إعدادات (مش لازم تغير) ====== */
-const N8N_WEBHOOK = "https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb";
-const TELEGRAM_BOT_TOKEN = "8498151381:AAFqKS8Z87EdO1jM2MW6t722fvFcYaX5aqw";
-const TELEGRAM_CHAT_ID = "685598171";
-const WHATSAPP_API_PHONE = "971547909135";
-const WHATSAPP_API_KEY = "1777158";
-
-/* ====== واجهة رفع الملفات (drag & drop) ====== */
-const dropzone = document.getElementById('dropzone');
-const fileInput = document.getElementById('fileInput');
-const filesList = document.getElementById('filesList');
-let filesStore = [];
-
-dropzone.addEventListener('click', ()=> fileInput.click());
-fileInput.addEventListener('change', (e)=> addFiles(e.target.files));
-
-dropzone.addEventListener('dragover', (e)=> {
-  e.preventDefault();
-  dropzone.classList.add('dragover');
-});
-dropzone.addEventListener('dragleave', ()=> dropzone.classList.remove('dragover'));
-dropzone.addEventListener('drop', (e)=> {
-  e.preventDefault();
-  dropzone.classList.remove('dragover');
-  addFiles(e.dataTransfer.files);
-});
-
-function addFiles(fileList){
-  for(let f of fileList){
-    filesStore.push(f);
-  }
-  renderFiles();
-}
-
-function renderFiles(){
-  filesList.innerHTML = '';
-  filesStore.forEach((f, idx)=>{
-    const div = document.createElement('div');
-    div.className='file-item';
-    div.innerHTML = `<span title="${f.name}">${f.name}</span>
-      <div style="display:flex;gap:8px;align-items:center">
-        <small style="opacity:0.8">${Math.round(f.size/1024)} KB</small>
-        <button class="file-remove" data-idx="${idx}">حذف</button>
-      </div>`;
-    filesList.appendChild(div);
-  });
-
-  document.querySelectorAll('.file-remove').forEach(btn=>{
-    btn.onclick = ()=> {
-      const i = parseInt(btn.getAttribute('data-idx'),10);
-      filesStore.splice(i,1);
-      renderFiles();
-    }
-  });
-}
-
-/* ====== منطق اظهار حقل الوزن لو اختر نعم ====== */
-document.getElementById('weightRadios').addEventListener('change', function(e){
-  const val = e.target.value;
-  const extra = document.getElementById('weightExtra');
-  if(val === 'نعم') extra.style.display='block'; else extra.style.display='none';
-});
-
-/* ====== toast ====== */
-const toast = document.getElementById('toast');
-function showToast(text, isError=false){
-  toast.textContent = text;
-  toast.className = isError ? 'toast error' : 'toast';
-  toast.style.display = 'block';
-  setTimeout(()=> toast.style.display = 'none', 4500);
-}
-
-/* ====== floating quick links (open chat) ====== */
-document.getElementById('floatWA').addEventListener('click', ()=>{
-  window.open('https://wa.me/971547909135', '_blank');
-});
-document.getElementById('floatTG').addEventListener('click', ()=>{
-  // open bot or your channel; recommends using bot username, but using deep link to bot token is not allowed.
-  window.open('https://t.me/' + '8498151381'.replace(/^\+?/,'') , '_blank');
-});
-
-/* ====== الإرسال ====== */
-document.getElementById('travelForm').addEventListener('submit', async function(e){
-  e.preventDefault();
-  // validations: ensure at least one phone filled
-  const name = document.getElementById('name').value.trim();
-  const city = document.getElementById('city').value;
-  const travelDate = document.getElementById('travelDate').value;
-  const hasWeight = document.querySelector('input[name="hasWeight"]:checked');
-  const weightVal = document.getElementById('weight').value;
-  const items = Array.from(document.querySelectorAll('input[name="items"]:checked')).map(n=>n.value);
-  const visitType = document.querySelector('input[name="visitType"]:checked');
-  const phoneEG = (document.getElementById('phoneEG').value || '').replace(/\s+/g,'');
-  const phoneAE = (document.getElementById('phoneAE').value || '').replace(/\s+/g,'');
-  const codeEG = document.getElementById('codeEG').value;
-  const codeAE = document.getElementById('codeAE').value;
-  // check required
-  if(!name || !city || !travelDate || !hasWeight || !visitType){
-    showToast('من فضلك املا كل الحقول المطلوبة *', true);
-    return;
-  }
-  if(hasWeight.value === 'نعم' && (!weightVal || Number(weightVal) <= 0)){
-    showToast('اكتب تقريبى الوزن الفاضى بالكيلو', true);
-    return;
-  }
-  if(!phoneEG && !phoneAE){
-    showToast('ادخل رقم واتساب مصر أو الإمارات على الأقل', true);
-    return;
-  }
-  // build data
-  const phoneFinalEG = phoneEG ? (codeEG + phoneEG.replace(/^0+/,'')) : '';
-  const phoneFinalAE = phoneAE ? (codeAE + phoneAE.replace(/^0+/,'')) : '';
-  const formDataObj = {
-    name, city, travelDate, hasWeight: hasWeight.value,
-    approxWeight: hasWeight.value==='نعم' ? weightVal : '',
-    items: items.join(' | '), visitType: visitType.value,
-    phoneEG: phoneFinalEG, phoneAE: phoneFinalAE
-  };
-
-  // upload files + data to n8n webhook using FormData (keeps files)
-  const fd = new FormData();
-  fd.append('data', JSON.stringify(formDataObj));
-  // append files
-  filesStore.forEach((f, i)=> fd.append('files', f, f.name));
-
-  try {
-    // 1) send to n8n - using POST multipart
-    await fetch(N8N_WEBHOOK, { method:'POST', body: fd });
-  } catch(err){
-    console.warn('n8n webhook error', err);
-    // continue anyway
-  }
-
-  // build pretty text for Telegram & WhatsApp
-  const pretty = `✈️ طلب جديد من المسافر\n\n` +
-    `👤 الاسم: ${name}\n` +
-    `🏙️ المدينة: ${city}\n` +
-    `📅 ميعاد السفر: ${travelDate}\n` +
-    `⚖️ عنده وزن فاضي: ${hasWeight.value}${ hasWeight.value==='نعم' ? ' — حوالى '+weightVal+' كجم' : ''}\n` +
-    `📦 نوع الأغراض: ${ items.length ? items.join(', ') : 'غير محدد'}\n` +
-    `🔖 زيارة/اقامة: ${visitType.value}\n` +
-    `📱 واتساب مصر: ${phoneFinalEG || '-'}\n` +
-    `📱 واتساب الإمارات: ${phoneFinalAE || '-'}\n` +
-    `🖼️ ملفات مرفقة: ${filesStore.length} ملف (الأسماء: ${filesStore.map(f=>f.name).join(', ') || '-'})`;
-
-  // 2) try send Telegram (may be blocked by CORS on some browsers)
-  try {
-    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-      method:'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: pretty })
+    weightRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.value === 'نعم') {
+          weightField.classList.remove('hidden');
+        } else {
+          weightField.classList.add('hidden');
+        }
+      });
     });
-  } catch (err) {
-    console.warn('Telegram send failed (CORS?)', err);
-  }
 
-  // 3) try send WhatsApp via CallMeBot (GET) - use no-cors fallback
-  try {
-    const waUrl = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(WHATSAPP_API_PHONE)}&text=${encodeURIComponent(pretty)}&apikey=${encodeURIComponent(WHATSAPP_API_KEY)}`;
-    await fetch(waUrl, { method:'GET', mode:'no-cors' });
-  } catch(err){
-    console.warn('CallMeBot send failed', err);
-  }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-  showToast('✅ تم إرسال بياناتك بنجاح! هنرجع لك قريباً.');
-  // reset form & files
-  document.getElementById('travelForm').reset();
-  filesStore = []; renderFiles();
-});
-</script>
+      const data = new FormData(form);
+      const jsonData = {};
+      data.forEach((value, key) => {
+        if (jsonData[key]) {
+          jsonData[key] += `, ${value}`;
+        } else {
+          jsonData[key] = value;
+        }
+      });
+
+      await fetch("https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(jsonData)
+      });
+
+      alert("تم إرسال بياناتك بنجاح ✅، سيتم التواصل معك على واتساب قريبًا.");
+      form.reset();
+      weightField.classList.add('hidden');
+    });
+  </script>
+
 </body>
 </html>
