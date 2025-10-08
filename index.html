@@ -3,269 +3,226 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>✈️ مسافر من الإمارات لمصر؟ اكسب من وزن شنطتك الفاضي</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>نموذج التسجيل</title>
   <style>
-    :root {
-      --accent: #0078ff;
-      --text-light: #e2e6ee;
-      --text-muted: #9da5b4;
-      --success: #2ecc71;
-      --error: #e74c3c;
-    }
-    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      font-family: 'Tajawal', sans-serif;
+      background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
       background-size: cover;
-      color: var(--text-light);
-      height: 100vh;
+      background-color: #0d0d0d;
+      color: #fff;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 20px;
+      align-items: center;
+      flex-direction: column;
     }
-    .wrap {
-      max-width: 900px;
-      width: 100%;
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
     }
-    .card {
-      background: rgba(15, 20, 30, 0.88);
+
+    .container {
+      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(10px);
-      border-radius: 18px;
-      padding: 30px 24px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    }
-    header {
+      border-radius: 20px;
+      padding: 25px 35px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      width: 90%;
+      max-width: 420px;
       text-align: center;
-      margin-bottom: 20px;
     }
-    header h1 {
-      font-size: 1.6rem;
-      margin: 0 0 8px 0;
-      color: var(--accent);
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #ffcc66;
     }
-    header p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 1rem;
+
+    .intro-text {
+      margin-bottom: 25px;
       line-height: 1.7;
+      color: #ddd;
+      font-size: 15px;
     }
-    form { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
-    label { font-weight: 600; color: var(--text-light); font-size: 0.95rem; }
-    input, select {
+
+    input, select, textarea {
       width: 100%;
       padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid #2f3644;
-      background: rgba(18, 22, 34, 0.8);
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
-    .inline-choices {
-      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;
-    }
-    .opt {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(16,20,30,0.8);
-      border: 1px solid #2a2f3b;
-      padding: 8px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background .2s;
-      width: fit-content;
-    }
-    .opt:hover { background: rgba(30,35,50,0.9); }
-    .row { display: flex; gap: 10px; flex-wrap: wrap; }
-    .col { flex: 1; display: flex; align-items: center; gap: 6px; }
-    .flag { font-size: 18px; }
-    .btn {
-      background: var(--accent);
-      color: #fff;
+      margin: 8px 0;
       border: none;
       border-radius: 10px;
-      padding: 12px 16px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background .2s, transform .1s;
-    }
-    .btn:hover { background: #005ecc; }
-    .btn:active { transform: translateY(1px); }
-
-    .contacts {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 22px;
-    }
-    .wa-icon {
-      width: 50px; height: 50px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      color: white; font-size: 26px;
-      text-decoration: none;
-      transition: transform .2s;
-    }
-    .wa-icon:hover { transform: scale(1.1); }
-    .wa-uae { background: #25D366; }
-    .wa-eg { background: #128C7E; }
-
-    .toast {
-      position: fixed;
-      bottom: 20px; right: 20px;
-      background: #222b3a;
+      background: rgba(255, 255, 255, 0.15);
       color: #fff;
-      padding: 14px 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.4s, transform 0.4s;
-      z-index: 9999;
+      font-size: 14px;
+      outline: none;
     }
-    .toast.show { opacity: 1; transform: translateY(0); }
-    .toast.success { border-right: 4px solid var(--success); }
-    .toast.error { border-right: 4px solid var(--error); }
+
+    input::placeholder, textarea::placeholder {
+      color: #ccc;
+    }
+
+    button {
+      width: 100%;
+      background-color: #ffcc66;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffd884;
+    }
+
+    .whatsapp {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .whatsapp a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: #25d366;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 22px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .whatsapp a:hover {
+      background-color: #1da851;
+      transform: scale(1.1);
+    }
+
+    label {
+      display: block;
+      text-align: right;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ffcc66;
+    }
+
+    .country-select {
+      display: flex;
+      gap: 10px;
+    }
+
+    .country-code {
+      width: 35%;
+    }
+
+    .phone-number {
+      width: 65%;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <header>
-        <h1>✈️  استفيد من سفرك بامان وسهولة... وخلّي فريقنا يجهّزلك كل حاجة وانت مرتاح!</h1>
-        <p>🧳 من الإمارات لمصر والعكس، كل التفاصيل في مكان واحد.<br>⚡ بنهتم بالسرعة، التنظيم، والمتابعة الدقيقة خطوة بخطوة.</p>
-      </header>
+  <div class="overlay"></div>
 
-      <form id="mainForm">
-        <div class="field">
-          <label>الاسم الكامل *</label>
-          <input name="name" type="text" placeholder="اكتب اسمك كامل" required>
-        </div>
+  <div class="container">
+    <h2>✈️ احجز رحلتك بسهولة</h2>
+    <p class="intro-text">
+      🧳 من الإمارات لمصر والعكس، كل التفاصيل في مكان واحد.<br>
+      ⚡ السرعة والتنظيم والمتابعة الدقيقة خطوة بخطوة.
+    </p>
 
-        <div class="field">
-          <label>مقيم في أي مدينة في الإمارات؟ *</label>
-          <select name="city" required>
-            <option value="">اختار المدينة</option>
-            <option>دبي</option>
-            <option>أبو ظبي</option>
-            <option>الشارقة</option>
-            <option>العين</option>
-            <option>عجمان</option>
-            <option>الفجيرة</option>
-            <option>رأس الخيمة</option>
-          </select>
-        </div>
+    <form id="travelForm">
+      <label>الاسم الكامل</label>
+      <input type="text" id="name" placeholder="ادخل اسمك الكامل" required>
 
-        <div class="field">
-          <label>راجع امتى مصر؟ *</label>
-          <input name="travelDate" type="datetime-local" required>
-        </div>
-
-        <div class="field">
-          <label>معاك وزن فاضي فى الشنطه؟ *</label>
-          <div class="inline-choices">
-            <label class="opt"><input type="radio" name="hasWeight" value="نعم" required> نعم</label>
-            <label class="opt"><input type="radio" name="hasWeight" value="لا" required> لا</label>
-          </div>
-        </div>
-
-        <div class="field" id="weightDetailWrap" style="display:none">
-          <label>حوالي كام كيلو فاضي معاك؟</label>
-          <input name="weightKg" type="number" placeholder="مثال: 8" min="0">
-        </div>
-
-        <div class="field">
-          <label>نوع الحاجات اللي ممكن تخدها معاك؟ *</label>
-          <div class="inline-choices" style="flex-direction:column">
-            <label class="opt"><input type="checkbox" name="items" value="تسجيل موبايل على الباسبور"> تسجيل موبايل على الباسبور</label>
-            <label class="opt"><input type="checkbox" name="items" value="باكدج إلكترونيات (موبايلات - تابلت - لابتوب)"> باكدج إلكترونيات (موبايلات - تابلت - لابتوب)</label>
-            <label class="opt"><input type="checkbox" name="items" value="باكدج ملابس + أحذية + عطور"> باكدج ملابس + أحذية + عطور</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>زيارة ولا إقامة؟ *</label>
-          <div class="inline-choices">
-            <label class="opt"><input type="radio" name="visitOrStay" value="زيارة" required> زيارة</label>
-            <label class="opt"><input type="radio" name="visitOrStay" value="إقامة" required> إقامة</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>رقمك للتواصل واتساب لو فيه رقم منهم مش معاك ممكن تكتب اى ارقام فى الخانه</label>
-          <div class="row">
-            <div class="col"><span class="flag">🇪🇬</span><input name="phone_eg" type="tel" placeholder="+20 ..." pattern="^\\+?20\\d{9,}$"></div>
-            <div class="col"><span class="flag">🇦🇪</span><input name="phone_ae" type="tel" placeholder="+971 ..." pattern="^\\+?971\\d{8,}$"></div>
-          </div>
-        </div>
-
-        <button class="btn" type="submit" id="submitBtn">
-          <span id="btnText">إرسال البيانات</span>
-          <span id="btnSpinner" style="display:none;">⏳</span>
-        </button>
-      </form>
-
-      <div class="contacts">
-        <a class="wa-icon wa-uae" href="https://wa.me/971547909135" target="_blank">💬</a>
-        <a class="wa-icon wa-eg" href="https://wa.me/201102710577" target="_blank">💬</a>
+      <label>رقم الموبايل</label>
+      <div class="country-select">
+        <select id="countryCode" class="country-code" required>
+          <option value="+971">🇦🇪 +971</option>
+          <option value="+20">🇪🇬 +20</option>
+        </select>
+        <input type="tel" id="phone" class="phone-number" placeholder="ادخل رقمك" required>
       </div>
+
+      <label>نوع الأغراض</label>
+      <select id="items" required>
+        <option value="">اختر نوع الأغراض</option>>
+        <option value="هدايا">هدايا</option>
+        <option value="أجهزة إلكترونية">أجهزة إلكترونية</option>
+        <option value="بضائع تجارية">بضائع تجارية</option>
+      </select>
+
+      <label>تاريخ ووقت الرحلة</label>
+      <input type="datetime-local" id="dateTime" required>
+
+      <label>تفاصيل إضافية</label>
+      <textarea id="details" rows="3" placeholder="اكتب أي تفاصيل إضافية..."></textarea>
+
+      <button type="submit">إرسال الطلب</button>
+    </form>
+
+    <div class="whatsapp">
+      <a href="https://wa.me/971000000000" target="_blank" title="تواصل مع الإمارات">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+      <a href="https://wa.me/201000000000" target="_blank" title="تواصل مع مصر">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
     </div>
   </div>
 
-  <div id="toast" class="toast"></div>
-
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script>
-    const webhookUrl = "https://uae2egy.app.n8n.cloud/webhook/d6743876-6f1d-46eb-a7dd-89f6337f71eb";
-    const form = document.getElementById("mainForm");
-    const toast = document.getElementById("toast");
-    const weightWrap = document.getElementById("weightDetailWrap");
-    const submitBtn = document.getElementById("submitBtn");
-    const btnText = document.getElementById("btnText");
-    const btnSpinner = document.getElementById("btnSpinner");
-
-    document.querySelectorAll('input[name="hasWeight"]').forEach(r => {
-      r.addEventListener('change', () => weightWrap.style.display = (r.value === 'نعم') ? 'block' : 'none');
-    });
-
-    function showToast(msg, type = "success") {
-      toast.textContent = msg;
-      toast.className = `toast ${type} show`;
-      setTimeout(() => toast.classList.remove("show"), 3000);
-    }
-
-    function formatDateTime(dt) {
-      const d = new Date(dt);
-      const options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true };
-      return d.toLocaleString('ar-EG', options).replace(',', ' الساعة');
-    }
-
-    form.addEventListener("submit", async (e) => {
+    document.getElementById("travelForm").addEventListener("submit", async function(e) {
       e.preventDefault();
-      const eg = form.phone_eg.value.trim();
-      const ae = form.phone_ae.value.trim();
-      if (!eg && !ae) return showToast("📞 لازم تكتب رقم واحد على الأقل", "error");
 
-      const data = Object.fromEntries(new FormData(form).entries());
-      data.items = Array.from(form.querySelectorAll('input[name="items"]:checked')).map(i => i.value).join(" | ");
-      data.travelDate = formatDateTime(data.travelDate);
-      data.submittedAt = formatDateTime(new Date());
+      const name = document.getElementById("name").value;
+      const countryCode = document.getElementById("countryCode").value;
+      const phone = document.getElementById("phone").value;
+      const fullPhone = `${countryCode}${phone}`;
+      const items = document.getElementById("items").value;
+      const details = document.getElementById("details").value;
+      const dateInput = new Date(document.getElementById("dateTime").value);
 
-      submitBtn.disabled = true;
-      btnText.style.display = "none";
-      btnSpinner.style.display = "inline";
+      const months = ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+      const day = dateInput.getDate();
+      const month = months[dateInput.getMonth()];
+      const year = dateInput.getFullYear();
+      let hours = dateInput.getHours();
+      const minutes = String(dateInput.getMinutes()).padStart(2, "0");
+      const ampm = hours >= 12 ? "PM" : "AM";
+      hours = hours % 12 || 12;
+      const formattedDate = `${day} ${month} ${year} الساعة ${hours}:${minutes} ${ampm}`;
 
-      try {
-        const res = await fetch(webhookUrl, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json" }});
-        if (res.ok) { form.reset(); showToast("✅ تم إرسال البيانات بنجاح!"); }
-        else throw new Error("response not ok");
-      } catch {
-        showToast("❌ حصل خطأ أثناء الإرسال", "error");
-      } finally {
-        submitBtn.disabled = false;
-        btnText.style.display = "inline";
-        btnSpinner.style.display = "none";
-      }
+      const data = {
+        name,
+        phone: fullPhone,
+        items,
+        details,
+        date: formattedDate
+      };
+
+      await fetch("https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      alert("✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.");
+      document.getElementById("travelForm").reset();
     });
   </script>
 </body>
