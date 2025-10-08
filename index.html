@@ -4,272 +4,251 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>✈️ مسافر من الإمارات لمصر؟ اكسب من وزن شنطتك الفاضي</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --accent: #0078ff;
-      --bg-dark: #0b0f19;
-      --card-dark: #1a1f2b;
-      --text-light: #e2e6ee;
-      --text-muted: #9da5b4;
-      --success: #2ecc71;
-      --error: #e74c3c;
-    }
-    * { box-sizing: border-box; }
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
+
     body {
       margin: 0;
       font-family: 'Cairo', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
-      padding: 24px 14px;
+      background: url('https://images.unsplash.com/photo-1544441892-83a2f36e5c56?auto=format&fit=crop&w=1740&q=80') 
+        no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
     }
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
+
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 0;
     }
-    .card {
-      background: var(--card-dark);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+      padding: 20px;
     }
-    header h1 {
-      font-size: 1.25rem;
-      margin: 0 0 8px 0;
-      color: var(--accent);
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #ffcc66;
     }
-    header p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.95rem;
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #ddd;
+      margin-bottom: 30px;
     }
-    form { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
-    label { font-weight: 600; color: var(--text-light); }
+
+    form {
+      background: rgba(40, 40, 40, 0.85);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      text-align: right;
+      width: 100%;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #ffcc66;
+    }
+
     input, select, textarea {
       width: 100%;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid #2f3644;
-      background: #121622;
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
-    .inline-choices {
-      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;
-    }
-    .opt {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #10141e; border: 1px solid #2a2f3b; padding: 8px 12px; border-radius: 10px;
-      cursor: pointer; transition: background .2s;
-    }
-    .opt:hover { background: #151b28; }
-    .row { display: flex; gap: 10px; flex-wrap: wrap; }
-    .col { flex: 1; }
-    .flag { font-size: 18px; }
-    .btn {
-      background: var(--accent);
-      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
       border: none;
+      background: #1f1f1f;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #888;
+    }
+
+    button {
+      width: 100%;
+      background: linear-gradient(90deg, #ffcc66, #ffaa00);
+      color: #222;
+      border: none;
+      padding: 12px;
       border-radius: 10px;
-      padding: 12px 16px;
       font-weight: 700;
       cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background .2s, transform .1s;
+      transition: 0.3s;
+      font-size: 16px;
     }
-    .btn:hover { background: #005ecc; }
-    .btn:active { transform: translateY(1px); }
-    .btn[disabled] { opacity: 0.6; cursor: not-allowed; }
 
-    /* Toast */
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #222b3a;
-      color: #fff;
-      padding: 14px 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.4s, transform 0.4s;
-      z-index: 9999;
+    button:hover {
+      background: linear-gradient(90deg, #ffaa00, #ffcc66);
+      transform: scale(1.02);
     }
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .toast.success { border-right: 4px solid var(--success); }
-    .toast.error { border-right: 4px solid var(--error); }
 
-    /* WhatsApp Icons */
-    .contacts {
+    .contact-icons {
       display: flex;
-      gap: 12px;
       justify-content: center;
-      margin-top: 24px;
+      gap: 15px;
+      margin-top: 25px;
     }
-    .wa-icon {
-      width: 46px;
-      height: 46px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+    .contact-icons a {
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: white;
       font-size: 24px;
-      text-decoration: none;
-      transition: transform .2s;
+      transition: 0.3s;
     }
-    .wa-icon:hover { transform: scale(1.1); }
-    .wa-uae { background: #25D366; }
-    .wa-eg { background: #128C7E; }
+
+    .contact-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    .reviews {
+      margin-top: 50px;
+      text-align: right;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 25px;
+      border-radius: 15px;
+      line-height: 1.8;
+      font-size: 15px;
+      color: #eee;
+    }
+
+    .reviews h2 {
+      color: #ffcc66;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <header>
-        <h1>✈️ مسافر من الإمارات لمصر؟ اكسب من وزن شنطتك الفاضي!</h1>
-        <p>سجل بيانات رحلتك بسرعة واحنا هنتواصل معاك لتنسيق الشحنة والعمولة — الخدمة آمنة ومجربة.</p>
-      </header>
 
-      <form id="mainForm">
-        <div class="field">
-          <label>الاسم الكامل *</label>
-          <input name="name" type="text" placeholder="اكتب اسمك كامل" required>
-        </div>
+  <div class="content">
+    <h1>✈️ استفيد من سفرك بامان وبسهولة</h1>
+    <p>خلّي فريقنا يجهّزلك كل حاجة وانت مرتاح!  
+    🧳 من الإمارات لمصر ، كل التفاصيل في مكان واحد.  
+    ⚡ نهتم بالسرعة، التنظيم، والمتابعة الدقيقة خطوة بخطوة.</p>
 
-        <div class="field">
-          <label>مقيم في أي مدينة في الإمارات؟ *</label>
-          <select name="city" required>
-            <option value="">اختار المدينة</option>
-            <option>دبي</option>
-            <option>أبو ظبي</option>
-            <option>الشارقة</option>
-            <option>العين</option>
-            <option>عجمان</option>
-            <option>الفجيرة</option>
-            <option>رأس الخيمة</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>راجع امتى مصر؟ *</label>
-          <input name="travelDate" type="datetime-local" required>
-        </div>
-
-        <div class="field">
-          <label>معاك وزن فاضي؟ *</label>
-          <div class="inline-choices">
-            <label class="opt"><input type="radio" name="hasWeight" value="نعم" required> نعم</label>
-            <label class="opt"><input type="radio" name="hasWeight" value="لا" required> لا</label>
-          </div>
-        </div>
-
-        <div class="field" id="weightDetailWrap" style="display:none">
-          <label>حوالي كام كيلو فاضي معاك؟</label>
-          <input name="weightKg" type="number" placeholder="مثال: 8" min="0">
-        </div>
-
-        <div class="field">
-          <label>نوع الأغراض اللي ممكن تخدها معاك؟ *</label>
-          <div class="inline-choices" style="flex-direction:column">
-            <label class="opt"><input type="checkbox" name="items" value="تسجيل موبايل على الباسبور"> تسجيل موبايل على الباسبور</label>
-            <label class="opt"><input type="checkbox" name="items" value="باكدج إلكترونيات (موبايلات/تابلت/لابتوب)"> باكدج إلكترونيات (موبايلات - تابلت - لابتوب)</label>
-            <label class="opt"><input type="checkbox" name="items" value="باكدج ملابس + احذية + عطور"> باكدج ملابس + أحذية + عطور</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>زيارة ولا إقامة؟ *</label>
-          <div class="inline-choices">
-            <label class="opt"><input type="radio" name="visitOrStay" value="زيارة" required> زيارة</label>
-            <label class="opt"><input type="radio" name="visitOrStay" value="إقامة" required> إقامة</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>رقمك للتواصل واتساب (مفتاح مصر +20 أو الإمارات +971)</label>
-          <div class="row">
-            <div class="col"><span class="flag">🇪🇬</span> <input name="phone_eg" type="tel" placeholder="+20 ..."></div>
-            <div class="col"><span class="flag">🇦🇪</span> <input name="phone_ae" type="tel" placeholder="+971 ..."></div>
-          </div>
-        </div>
-
-        <button class="btn" type="submit" id="submitBtn">
-          <span id="btnText">إرسال البيانات</span>
-          <span id="btnSpinner" style="display:none;">⏳</span>
-        </button>
-      </form>
-
-      <div class="contacts">
-        <a class="wa-icon wa-uae" href="https://wa.me/971547909135" target="_blank" title="واتساب الإمارات">💬</a>
-        <a class="wa-icon wa-eg" href="https://wa.me/201102710577" target="_blank" title="واتساب مصر">💬</a>
+    <form id="flightForm">
+      <div class="field">
+        <label>الاسم الكامل</label>
+        <input type="text" id="name" placeholder="اكتب اسمك بالكامل" required />
       </div>
+
+      <div class="field">
+        <label> رقم الموبايل مصرى واماراتى للو فيه رقم منهم مش معاك ممكن تكتب اى ارقام فى الخانه</label>
+        <div style="display: flex; gap: 10px;">
+          <select id="countryCode" style="width: 100px;">
+            <option value="+971">🇦🇪 +971</option>
+            <option value="+20">🇪🇬 +20</option>
+          </select>
+          <input type="tel" id="phone" placeholder="اكتب رقمك" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>نوع الأغراض</label>
+        <select id="type" required>
+          <option value="">اختر نوع الأغراض</option>
+          <option value="شنط شخصية">شنط شخصية</option>
+          <option value="أجهزة إلكترونية">أجهزة إلكترونية</option>
+          <option value="طرود أو شحن">طرود أو شحن</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>تفاصيل إضافية</label>
+        <textarea id="details" rows="3" placeholder="اكتب تفاصيل إضافية هنا"></textarea>
+      </div>
+
+      <button type="submit">📩 إرسال التفاصيل</button>
+    </form>
+
+    <div class="contact-icons">
+      <a href="https://wa.me/971xxxxxxxxx" target="_blank" title="واتساب الإمارات">
+        🇦🇪
+      </a>
+      <a href="https://wa.me/20xxxxxxxxx" target="_blank" title="واتساب مصر">
+        🇪🇬
+      </a>
+    </div>
+
+    <div class="reviews">
+      <h2>💬 إزاي بنشتغل؟</h2>
+      <p>
+        بنرتب كل الرحلات بخطة دقيقة، من لحظة استلام الأغراض لحد ما توصل بأمان.  
+        كل خطوة بتكون موثقة وبتقدر تتابعها لحظة بلحظة مع فريقنا.  
+      </p>
+
+      <h2>⭐ آراء الناس فينا</h2>
+      <p>
+        "خدمة ممتازة جدًا وسرعة في التواصل!"  
+        "وصلت أغراضي في المعاد بالضبط.. ثقة فوق الوصف 🔥"  
+        "دي مش أول مرة أتعامل معاهم ومش آخر مرة أكيد 👌"
+      </p>
     </div>
   </div>
 
-  <div id="toast" class="toast"></div>
-
   <script>
-    const webhookUrl = "https://uae2egy.app.n8n.cloud/webhook/d6743876-6f1d-46eb-a7dd-89f6337f71eb";
-    const form = document.getElementById("mainForm");
-    const submitBtn = document.getElementById("submitBtn");
-    const btnText = document.getElementById("btnText");
-    const btnSpinner = document.getElementById("btnSpinner");
-    const toast = document.getElementById("toast");
-    const weightWrap = document.getElementById("weightDetailWrap");
-
-    document.querySelectorAll('input[name="hasWeight"]').forEach(radio => {
-      radio.addEventListener('change', () => {
-        weightWrap.style.display = (radio.value === 'نعم') ? 'block' : 'none';
-      });
-    });
-
-    function showToast(msg, type = "success") {
-      toast.textContent = msg;
-      toast.className = `toast ${type} show`;
-      setTimeout(() => toast.classList.remove("show"), 3000);
-    }
-
-    function atLeastOnePhone() {
-      const eg = form.querySelector('input[name="phone_eg"]').value.trim();
-      const ae = form.querySelector('input[name="phone_ae"]').value.trim();
-      return eg || ae;
-    }
-
-    form.addEventListener("submit", async (e) => {
+    document.getElementById('flightForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!atLeastOnePhone()) return showToast("📞 لازم تكتب رقم واحد على الأقل", "error");
 
-      const data = Object.fromEntries(new FormData(form).entries());
-      data.items = Array.from(form.querySelectorAll('input[name="items"]:checked')).map(i => i.value).join(" | ");
-      data.submittedAt = new Date().toISOString();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('countryCode').value + document.getElementById('phone').value;
+      const type = document.getElementById('type').value;
+      const details = document.getElementById('details').value;
 
-      submitBtn.disabled = true;
-      btnText.style.display = "none";
-      btnSpinner.style.display = "inline";
+      // تنسيق التاريخ والوقت
+      const now = new Date();
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      const formattedDate = now.toLocaleDateString('ar-EG', options);
+      let hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+      const formattedTime = `${hours}:${minutes} ${ampm}`;
 
-      try {
-        const res = await fetch(webhookUrl, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json" }});
-        if (res.ok) {
-          form.reset();
-          showToast("✅ تم إرسال البيانات بنجاح!");
-        } else throw new Error("response not ok");
-      } catch {
-        showToast("❌ حصل خطأ أثناء الإرسال", "error");
-      } finally {
-        submitBtn.disabled = false;
-        btnText.style.display = "inline";
-        btnSpinner.style.display = "none";
-      }
+      const data = {
+        name,
+        phone,
+        type,
+        details,
+        datetime: `${formattedDate} الساعة ${formattedTime}`
+      };
+
+      await fetch("https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      alert("✅ تم إرسال التفاصيل بنجاح! سنتواصل معك حالا.");
+      e.target.reset();
     });
   </script>
+
 </body>
 </html>
