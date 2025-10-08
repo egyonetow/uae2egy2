@@ -148,6 +148,37 @@
 
     .note-success{display:none;padding:14px;border-radius:10px;background:linear-gradient(90deg,rgba(20, 100, 50, 0.7),rgba(15, 90, 45, 0.6));color:#a0e0a0; font-weight:700;margin-top:8px; text-align: center;}
     .note-error{display:none;padding:14px;border-radius:10px;background:linear-gradient(90deg,rgba(100, 20, 20, 0.7),rgba(90, 15, 15, 0.6));color:#e0a0a0; font-weight:700;margin-top:8px; text-align: center;}
+
+    /* تنسيق جديد لأرقام الهواتف */
+    .phone-input-container {
+      display: flex;
+      align-items: center;
+      border: 1px solid #444;
+      border-radius: 10px;
+      background: rgba(20, 20, 30, 0.8);
+      overflow: hidden;
+    }
+    .country-code {
+      padding: 12px 14px;
+      background: rgba(40, 40, 60, 0.9);
+      color: var(--accent);
+      font-weight: 700;
+      border-right: 1px solid #444;
+      min-width: 90px;
+      text-align: center;
+    }
+    .phone-number-input {
+      border: none !important;
+      flex: 1;
+      padding: 12px 14px;
+      background: transparent !important;
+    }
+    .phone-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
@@ -232,24 +263,34 @@
               </div>
             </div>
 
-            <!-- رقم الواتساب (مفتاحين) -->
+            <!-- رقم الواتساب (مفتاحين ثابتين) -->
             <div class="field">
-              <label>اكتب رقمك هنا للتواصل واتساب (مفتاح مصر +20 أو مفتاح الإمارات +971)</label>
+              <label>اكتب رقمك هنا للتواصل واتساب</label>
               <div class="row">
                 <div class="col">
-                  <div style="display:flex;gap:8px;align-items:center">
+                  <div class="phone-label">
                     <span class="flag">🇪🇬</span>
-                    <input name="phone_eg" type="tel" placeholder="+20 ...">
+                    <span>رقم واتساب مصرى</span>
                   </div>
+                  <div class="phone-input-container">
+                    <div class="country-code">+20</div>
+                    <input name="phone_eg" type="tel" class="phone-number-input" placeholder="10XXXXXXXX" pattern="[0-9]{10,11}" title="اكتب رقم الهاتف المصري بدون المفتاح الدولي">
+                  </div>
+                  <div class="small-note">اكتب الرقم بدون المفتاح الدولي (مثال: 1012345678)</div>
                 </div>
                 <div class="col">
-                  <div style="display:flex;gap:8px;align-items:center">
+                  <div class="phone-label">
                     <span class="flag">🇦🇪</span>
-                    <input name="phone_ae" type="tel" placeholder="+971 ...">
+                    <span>رقم واتساب إماراتى</span>
                   </div>
+                  <div class="phone-input-container">
+                    <div class="country-code">+971</div>
+                    <input name="phone_ae" type="tel" class="phone-number-input" placeholder="5XXXXXXXX" pattern="[0-9]{9}" title="اكتب رقم الهاتف الإماراتي بدون المفتاح الدولي">
+                  </div>
+                  <div class="small-note">اكتب الرقم بدون المفتاح الدولي (مثال: 501234567)</div>
                 </div>
               </div>
-              <div class="small-note">يكفي تكتب رقم واحد على الأقل (مصر أو الإمارات)</div>
+              <div class="small-note" style="margin-top: 8px;">يكفي تكتب رقم واحد على الأقل (مصر أو الإمارات)</div>
             </div>
 
             <!-- hidden timestamp -->
@@ -443,4 +484,4 @@
     });
   </script>
 </body>
-</html>
+  </html>
