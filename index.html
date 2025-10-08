@@ -3,227 +3,405 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>نموذج التسجيل</title>
+  <title>✈️ مسافر من الإمارات لمصر؟ اكسب من وزن شنطتك الفاضي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Tajawal', sans-serif;
-      background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
-      background-size: cover;
-      background-color: #0d0d0d;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+    :root{
+      --accent:#0078ff;
+      --accent-dark:#005ecc;
+      --gold:#ffcf40;
+      --card-bg: rgba(30, 30, 40, 0.92);
+      --card-bg-dark: rgba(18,18,18,0.86);
+      --text:#f0f0f0;
+      --text-secondary: #b0b0c0;
+      --round:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(180deg, rgba(0, 10, 30, 0.9) 0%, rgba(0, 5, 15, 0.95) 100%), url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px 16px;
     }
 
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
     }
 
-    .container {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 25px 35px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-      width: 90%;
-      max-width: 420px;
-      text-align: center;
+    .card{
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    h2 {
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-      color: #ffcc66;
+    header{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:24px;
     }
 
-    .intro-text {
-      margin-bottom: 25px;
-      line-height: 1.7;
-      color: #ddd;
-      font-size: 15px;
+    header h1{
+      font-size:1.3rem;
+      margin:0;
+      color:var(--accent);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    header p.lead{
+      margin:0;
+      font-size:0.95rem;
+      color:var(--text-secondary);
     }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 10px 12px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-size: 14px;
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:24px;
+    }
+    @media(max-width:900px){ .cols{ grid-template-columns: 1fr; } }
+
+    /* form */
+    form{display:flex;flex-direction:column;gap:16px}
+    label{font-weight:600;font-size:0.95rem; color: var(--text);}
+    .field{display:flex;flex-direction:column;gap:10px}
+    input[type="text"], input[type="number"], input[type="tel"], input[type="datetime-local"], textarea, select{
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid #444;
+      font-size:0.98rem;
+      background:rgba(20, 20, 30, 0.8);
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
       outline: none;
     }
+    textarea{min-height:90px; resize:vertical}
+    .row{display:flex;gap:12px}
+    .row .col{flex:1}
 
-    input::placeholder, textarea::placeholder {
-      color: #ccc;
+    .small-note{font-size:0.85rem;color:var(--text-secondary);opacity:0.85}
+    .inline-choices{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .opt{
+      display:inline-flex;align-items:center;gap:8px;background:rgba(40, 40, 50, 0.8);border-radius:10px;padding:10px 12px;border:1px solid rgba(100, 100, 150, 0.3);
+      cursor:pointer;font-weight:600;transition: background 0.2s;
     }
-
-    button {
-      width: 100%;
-      background-color: #ffcc66;
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      padding: 12px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
+    .opt:hover {
+      background: rgba(50, 50, 70, 0.8);
     }
-
-    button:hover {
-      background-color: #ffd884;
-    }
-
-    .whatsapp {
-      margin-top: 25px;
+    .opt input{accent-color:var(--accent)}
+    .btn{
+      background:var(--accent); color:#fff;border:none;border-radius:10px;padding:14px 16px;font-weight:700;cursor:pointer;font-size:1rem;
+      transition:background .15s, transform .08s;
+      position: relative;
       display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .whatsapp a {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background-color: #25d366;
-      display: flex;
-      justify-content: center;
       align-items: center;
-      color: white;
-      font-size: 22px;
-      text-decoration: none;
-      transition: all 0.3s;
+      justify-content: center;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn[disabled]{opacity:.6;cursor:not-allowed}
+
+    /* loading spinner */
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 10px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
-    .whatsapp a:hover {
-      background-color: #1da851;
-      transform: scale(1.1);
+    /* right column (info + reviews) */
+    .side{
+      display:flex;flex-direction:column;gap:16px;
     }
+    .card-mini{
+      background:linear-gradient(180deg, rgba(40, 40, 50, 0.8), rgba(35, 35, 45, 0.7));
+      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.05);
+    }
+    .review{background:rgba(50, 50, 70, 0.6);padding:12px;border-radius:10px;font-size:0.95rem; margin-bottom: 10px;}
 
-    label {
-      display: block;
-      text-align: right;
-      margin-top: 10px;
-      font-size: 14px;
-      color: #ffcc66;
-    }
+    footer{margin-top:20px;text-align:center;color:var(--text-secondary);opacity:.9;font-weight:600}
 
-    .country-select {
-      display: flex;
-      gap: 10px;
-    }
+    .contacts{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px; justify-content: center;}
+    .wa-link{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:50%;background:#25D366;color:#fff;text-decoration:none;font-weight:700; width: 50px; height: 50px; justify-content: center;}
+    .wa-eg{background:#0c7abf}
+    .flag{font-size:18px;margin-left:6px}
 
-    .country-code {
-      width: 35%;
-    }
-
-    .phone-number {
-      width: 65%;
-    }
+    .note-success{display:none;padding:14px;border-radius:10px;background:linear-gradient(90deg,rgba(20, 100, 50, 0.7),rgba(15, 90, 45, 0.6));color:#a0e0a0; font-weight:700;margin-top:8px; text-align: center;}
+    .note-error{display:none;padding:14px;border-radius:10px;background:linear-gradient(90deg,rgba(100, 20, 20, 0.7),rgba(90, 15, 15, 0.6));color:#e0a0a0; font-weight:700;margin-top:8px; text-align: center;}
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="pageTitle">
+      <header>
+        <div>
+          <h1 id="pageTitle">✈️ مسافر من الإمارات لمصر؟ اكسب من وزن شنطتك الفاضي!</h1>
+          <p class="lead">سجل بيانات رحلتك بسرعة واحنا نتواصل معاك لتنسيق الشحنة والعمولة — آمن ومرتب ومجرب.</p>
+        </div>
+      </header>
 
-  <div class="container">
-    <h2>✈️ احجز رحلتك بسهولة</h2>
-    <p class="intro-text">
-      🧳 من الإمارات لمصر والعكس، كل التفاصيل في مكان واحد.<br>
-      ⚡ السرعة والتنظيم والمتابعة الدقيقة خطوة بخطوة.
-    </p>
+      <div class="cols">
+        <!-- main form -->
+        <section>
+          <form id="mainForm" autocomplete="off" novalidate>
+            <!-- الاسم -->
+            <div class="field">
+              <label>الاسم الكامل *</label>
+              <input name="name" type="text" placeholder="اكتب اسمك كامل" required>
+            </div>
 
-    <form id="travelForm">
-      <label>الاسم الكامل</label>
-      <input type="text" id="name" placeholder="ادخل اسمك الكامل" required>
+            <!-- المدينة -->
+            <div class="field">
+              <label>مقيم في أي مدينة في الإمارات؟ *</label>
+              <select name="city" required>
+                <option value="">اختار المدينة</option>
+                <option>دبي</option>
+                <option>أبو ظبي</option>
+                <option>الشارقة</option>
+                <option>العين</option>
+                <option>عجمان</option>
+                <option>الفجيرة</option>
+                <option>رأس الخيمة</option>
+              </select>
+            </div>
 
-      <label>رقم الموبايل</label>
-      <div class="country-select">
-        <select id="countryCode" class="country-code" required>
-          <option value="+971">🇦🇪 +971</option>
-          <option value="+20">🇪🇬 +20</option>
-        </select>
-        <input type="tel" id="phone" class="phone-number" placeholder="ادخل رقمك" required>
+            <!-- ميعاد السفر -->
+            <div class="field">
+              <label>راجع امتى مصر؟ *</label>
+              <input name="travelDate" type="datetime-local" required>
+              <div class="small-note">اختار اليوم والساعة المتوقعين للسفر</div>
+            </div>
+
+            <!-- وزن فاضي -->
+            <div class="field">
+              <label>معاك وزن فاضي؟ *</label>
+              <div class="inline-choices" role="radiogroup" aria-label="وزن فاضي">
+                <label class="opt"><input type="radio" name="hasWeight" value="نعم" required> نعم</label>
+                <label class="opt"><input type="radio" name="hasWeight" value="لا" required> لا</label>
+              </div>
+            </div>
+
+            <!-- خانة تقريب الكيلو تظهر لو نعم -->
+            <div class="field" id="weightDetailWrap" style="display:none">
+              <label>حوالي كام كيلو فاضي معاك؟</label>
+              <input name="weightKg" type="number" placeholder="مثال: 8" min="0">
+            </div>
+
+            <!-- نوع الأغراض -->
+            <div class="field">
+              <label>نوع الأغراض اللي ممكن تخدها معاك؟ *</label>
+              <div class="inline-choices" style="flex-direction:column" role="group" aria-label="نوع الأغراض">
+                <label class="opt" style="background:rgba(40, 40, 50, 0.8);border:1px solid rgba(100, 100, 150, 0.3)"><input type="checkbox" name="items" value="تسجيل موبايل على الباسبور"> متاح معاك تسجيل موبايل على الباسبور</label>
+
+                <label class="opt" style="background:rgba(40, 40, 50, 0.8);border:1px solid rgba(100, 100, 150, 0.3)">
+                  <input type="checkbox" name="items" value="باكدج الكترونيات (موبايلات/تابلت/لابتوب)"> باكدج إلكترونيات (موبايلات - تابلت - لابتوب) <div style="font-size:0.86rem;color:#a0a0b0;margin-top:4px">ملاحظة: هتخصم من الوزن</div>
+                </label>
+
+                <label class="opt" style="background:rgba(40, 40, 50, 0.8);border:1px solid rgba(100, 100, 150, 0.3)">
+                  <input type="checkbox" name="items" value="باكدج ملابس + احذية + عطور"> باكدج (ملابس + أحذية + عطور) بالكيلو
+                </label>
+              </div>
+            </div>
+
+            <!-- زيارة ولا اقامة -->
+            <div class="field">
+              <label>زيارة ولا إقامة؟ *</label>
+              <div class="inline-choices" role="radiogroup" aria-label="زيارة او اقامة">
+                <label class="opt"><input type="radio" name="visitOrStay" value="زيارة" required> زيارة</label>
+                <label class="opt"><input type="radio" name="visitOrStay" value="إقامة" required> إقامة</label>
+              </div>
+            </div>
+
+            <!-- رقم الواتساب (مفتاحين) -->
+            <div class="field">
+              <label>اكتب رقمك هنا للتواصل واتساب (مفتاح مصر +20 أو مفتاح الإمارات +971)</label>
+              <div class="row">
+                <div class="col">
+                  <div style="display:flex;gap:8px;align-items:center">
+                    <span class="flag">🇪🇬</span>
+                    <input name="phone_eg" type="tel" placeholder="+20 ...">
+                  </div>
+                </div>
+                <div class="col">
+                  <div style="display:flex;gap:8px;align-items:center">
+                    <span class="flag">🇦🇪</span>
+                    <input name="phone_ae" type="tel" placeholder="+971 ...">
+                  </div>
+                </div>
+              </div>
+              <div class="small-note">يكفي تكتب رقم واحد على الأقل (مصر أو الإمارات)</div>
+            </div>
+
+            <!-- hidden timestamp -->
+            <input type="hidden" name="submittedAt" id="submittedAt">
+
+            <!-- submit -->
+            <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+              <button class="btn" type="submit" id="submitBtn">
+                <span id="btnText">إرسال البيانات</span>
+                <div class="spinner" id="spinner" style="display: none;"></div>
+              </button>
+              <div class="note-success" id="successNote">✅ تم إرسال البيانات بنجاح! هنتواصل معاك قريباً.</div>
+              <div class="note-error" id="errorNote">❌ حصل خطأ أثناء الإرسال، حاول تاني.</div>
+            </div>
+          </form>
+        </section>
+
+        <!-- sidebar: info + reviews + contacts -->
+        <aside class="side">
+          <div class="card-mini">
+            <h3 style="margin:0 0 8px 0; color: var(--accent);">إزاي الشغل؟</h3>
+            <p style="margin:0;font-size:0.95rem;line-height:1.5; color: var(--text-secondary);">إحنا بننسق مع مسافرين راجعين مصر — لو معاك وزن فاضي أو تقدر تسجل موبايل على الباسبور أو تجيب باكدج إلكترونيات/ملابس، سجّل هنا واحنا نرد عليك بالأسعار وطريقة التسليم.</p>
+          </div>
+
+          <div class="card-mini">
+            <h4 style="margin:0 0 8px 0; color: var(--accent);">نقاط مهمة</h4>
+            <ul style="margin:0;padding-left:18px; color: var(--text-secondary);">
+              <li>البيانات بتتخزن آمن عندنا وهنستخدمها للتواصل بس.</li>
+              <li>ما نتحملش أي غرامات جمركية لو حصلت خلال النقل.</li>
+              <li>الرسوم والعمولة هتكون واضحة قبل أي اتفاق.</li>
+            </ul>
+          </div>
+
+          <div class="card-mini">
+            <h4 style="margin:0 0 8px 0; color: var(--accent);">آراء الناس</h4>
+            <div class="review">"تعامل محترم وسهل، استلمت كل حاجة سليمة." — أحمد، دبي</div>
+            <div class="review">"رتبوا كل حاجة بسرعة وكانوا واضحين في الشروط." — منى، الشارقة</div>
+            <div class="review">"خدمة ممتازة وأنصح أي حد يجرب." — خالد، أبوظبي</div>
+          </div>
+
+          <div class="card-mini">
+            <h4 style="margin:0 0 8px 0; color: var(--accent);">تواصل مباشر</h4>
+            <div class="contacts">
+              <a class="wa-link" href="https://wa.me/971547909135" target="_blank" rel="noopener" title="واتساب الإمارات">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.189-3.553-8.436"/>
+                </svg>
+              </a>
+              <a class="wa-link wa-eg" href="https://wa.me/201102710577" target="_blank" rel="noopener" title="واتساب مصر">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.189-3.553-8.436"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </aside>
       </div>
 
-      <label>نوع الأغراض</label>
-      <select id="items" required>
-        <option value="">اختر نوع الأغراض</option>>
-        <option value="هدايا">هدايا</option>
-        <option value="أجهزة إلكترونية">أجهزة إلكترونية</option>
-        <option value="بضائع تجارية">بضائع تجارية</option>
-      </select>
-
-      <label>تاريخ ووقت الرحلة</label>
-      <input type="datetime-local" id="dateTime" required>
-
-      <label>تفاصيل إضافية</label>
-      <textarea id="details" rows="3" placeholder="اكتب أي تفاصيل إضافية..."></textarea>
-
-      <button type="submit">إرسال الطلب</button>
-    </form>
-
-    <div class="whatsapp">
-      <a href="https://wa.me/971000000000" target="_blank" title="تواصل مع الإمارات">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
-      <a href="https://wa.me/201000000000" target="_blank" title="تواصل مع مصر">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
+      <footer>الخدمة متاحة حالياً للمسافرين من الإمارات لمصر ✈️ — وإن شاء الله قريب نوسع لباقي الدول</footer>
     </div>
   </div>
 
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script>
-    document.getElementById("travelForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
+    // ---------- إعدادات عامة ----------
+    const webhookUrl = "https://uae2egy.app.n8n.cloud/webhook/d6743876-6f1d-46eb-a7dd-89f6337f71eb";
 
-      const name = document.getElementById("name").value;
-      const countryCode = document.getElementById("countryCode").value;
-      const phone = document.getElementById("phone").value;
-      const fullPhone = `${countryCode}${phone}`;
-      const items = document.getElementById("items").value;
-      const details = document.getElementById("details").value;
-      const dateInput = new Date(document.getElementById("dateTime").value);
+    // عناصر DOM
+    const mainForm = document.getElementById('mainForm');
+    const weightDetailWrap = document.getElementById('weightDetailWrap');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const spinner = document.getElementById('spinner');
+    const successNote = document.getElementById('successNote');
+    const errorNote = document.getElementById('errorNote');
 
-      const months = ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
-      const day = dateInput.getDate();
-      const month = months[dateInput.getMonth()];
-      const year = dateInput.getFullYear();
-      let hours = dateInput.getHours();
-      const minutes = String(dateInput.getMinutes()).padStart(2, "0");
-      const ampm = hours >= 12 ? "PM" : "AM";
-      hours = hours % 12 || 12;
-      const formattedDate = `${day} ${month} ${year} الساعة ${hours}:${minutes} ${ampm}`;
-
-      const data = {
-        name,
-        phone: fullPhone,
-        items,
-        details,
-        date: formattedDate
-      };
-
-      await fetch("https://uae2egy.app.n8n.cloud/webhook-test/d6743876-6f1d-46eb-a7dd-89f6337f71eb", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+    // إظهار/اخفاء خانة الوزن التقريبي
+    document.querySelectorAll('input[name="hasWeight"]').forEach(radio=>{
+      radio.addEventListener('change', ()=>{
+        if(radio.checked && radio.value === 'نعم') weightDetailWrap.style.display = 'block';
+        if(radio.checked && radio.value === 'لا') {
+          weightDetailWrap.style.display = 'none';
+          mainForm.querySelector('input[name="weightKg"]').value = '';
+        }
       });
+    });
 
-      alert("✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.");
-      document.getElementById("travelForm").reset();
+    // تأكيد وجود رقم واحد على الأقل (مصر أو الإمارات)
+    function atLeastOnePhone(){
+      const eg = mainForm.querySelector('input[name="phone_eg"]').value.trim();
+      const ae = mainForm.querySelector('input[name="phone_ae"]').value.trim();
+      return eg.length>0 || ae.length>0;
+    }
+
+    // إرسال البيانات إلى n8n webhook
+    mainForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      // تحقق بسيط
+      if(!atLeastOnePhone()){
+        alert('رجاءً اكتب رقم واحد على الأقل (مصر أو الإمارات) للتواصل.');
+        return;
+      }
+
+      // جمع البيانات
+      const formData = new FormData();
+      const data = Object.fromEntries(new FormData(mainForm).entries());
+      // ضع طابع زمني
+      data.submittedAt = new Date().toISOString();
+      // items checkboxes => جمع القيم لو في أكثر من قيمة
+      const items = Array.from(mainForm.querySelectorAll('input[name="items"]:checked')).map(i=>i.value);
+      data.items = items.join(' | ') || '';
+
+      // append كل الحقول كسلاسل
+      for(const k in data){
+        formData.append(k, data[k]);
+      }
+
+      // حالة الواجهة
+      submitBtn.disabled = true;
+      btnText.textContent = "جاري الإرسال...";
+      spinner.style.display = 'inline-block';
+      successNote.style.display='none';
+      errorNote.style.display='none';
+
+      try{
+        const resp = await fetch(webhookUrl, {
+          method:'POST',
+          body: formData
+        });
+        // بعض أنظمة n8n ترجع 2xx ولكن قد تكون العملية داخلياً ناجحة
+        if(resp.ok){
+          successNote.style.display = 'block';
+          errorNote.style.display = 'none';
+          mainForm.reset();
+        } else {
+          // استجابة غير 200
+          throw new Error('response not ok: ' + resp.status);
+        }
+      } catch(err){
+        console.error(err);
+        errorNote.style.display = 'block';
+        successNote.style.display = 'none';
+      } finally{
+        submitBtn.disabled = false;
+        btnText.textContent = "إرسال البيانات";
+        spinner.style.display = 'none';
+      }
+    });
+
+    // تجربة: منع ازالة العناصر الافتراضية لو ضغط المستخدم على refresh بالخطأ
+    window.addEventListener('beforeunload', function (e) {
+      // لو فيه بيانات غير محفوظة ممكن نعرض تنبيه (لكن أتركه معلق افتراضياً)
     });
   </script>
 </body>
-</html>
+  </html>
